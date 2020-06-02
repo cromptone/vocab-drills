@@ -9,11 +9,11 @@
     "type": "git",
     "url": "https://github.com/cromptone/vocab-drills"
   },
-  "license": "MIT",
   "scripts": {
-    "dev": "yarn css; shadow-cljs watch app",
-    "release": "yarn css; shadow-cljs release app",
     "css": "shadow-cljs clj-run app.styles/build;",
+    "vocab": "shadow-cljs clj-run app.compile-vocab/compile-vocab;",
+    "release": "yarn css; yarn vocab; shadow-cljs release app",
+    "dev": "yarn css; yarn vocab; shadow-cljs watch app",
     "start": "shadow-cljs server",
     "clean": "rm -rf target && rm -rf public/js",
     "clean-win": "rmdir /s /q public/js & rmdir /s /q target"
