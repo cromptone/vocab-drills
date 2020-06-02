@@ -1,12 +1,11 @@
-(ns app.views)
+(ns app.views
+  (:require [shadow.resource :as rc]))
 
-(def make-alert #(.alert js/window "Button clicked"))
-
-(defn button [text make-alert]
-  [:button {:on-click #(.alert js/window "Button clicked")} text])
+(defn button [text]
+  [:button {:on-click #(.alert js/window (rc/inline "../vocab/test.txt"))} text])
 
 (defn app []
   [:div
    [:h1 "Vocabulary Drills"]
-   (button "Start exercises" make-alert)
+   (button "Start exercises")
    [:p "More to come"]])
