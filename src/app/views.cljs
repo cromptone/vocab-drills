@@ -1,8 +1,7 @@
-(ns app.views
-  (:require [shadow.resource :as rc]))
+(ns app.views)
 
 (defn button [text]
-  [:button {:on-click #(.alert js/window (rc/inline "../vocab/test.txt"))} text])
+  [:button {:on-click #(.alert js/window "hit")} text])
 
 (defn app []
   [:div
