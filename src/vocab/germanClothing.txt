@@ -1,3 +1,4 @@
+Clothing
 das Hemd, die Hemden	shirt
 der Schuh, die Schuhe	shoe
 der Rock, die Röcke	skirt

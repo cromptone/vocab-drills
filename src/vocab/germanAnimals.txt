@@ -1,3 +1,4 @@
+Animals
 der Alligator, die Alligatoren	alligator
 die Amphibie, die Amphibien	amphibian
 das Tier, die Tiere	animal

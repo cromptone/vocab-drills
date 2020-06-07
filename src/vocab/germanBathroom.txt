@@ -1,3 +1,4 @@
+Bathroom items
 das Bad, die Bäder	bathroom
 die Badewanne, die Badewannen	bathtub
 der Badewannenstöpsel, die Badewannenstöpsel	bathtub plug

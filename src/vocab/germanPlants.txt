@@ -1,3 +1,4 @@
+Plants
 die Eichel, die Eicheln	acorn
 die Borke, die Borken	bark (tree bark)
 der Gürtel, die Gürtel	belt

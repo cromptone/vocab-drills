@@ -1,3 +1,4 @@
+Health
 der Abbruch, die Abbrüche	abortion
 die Geburt, die Geburten	birth
 die Blindheit, die Blindheiten	blindness

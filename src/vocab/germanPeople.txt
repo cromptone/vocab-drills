@@ -1,3 +1,4 @@
+People
 der Erwachsene, die Erwachsenen	adult
 der Bogenschütze, die Bogenschützen	archer (male)
 die Bogenschützin, die Bogenschützinnen	archer (female)

@@ -1,3 +1,4 @@
+Outside
 der Bogen, die Bogen	arch
 der Backstein, die Backsteine	brick
 das Gebäude, die Gebäude	building

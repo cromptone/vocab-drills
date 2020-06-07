@@ -1,3 +1,4 @@
+Various abstractions
 der Zufall, die Zufälle	accident (chance, coincidence, as opposed to a car accident)
 der Vorteil, die Vorteile	advantage
 die Anzeige, die Anzeigen	advertisement
