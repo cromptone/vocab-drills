@@ -1,6 +1,5 @@
 (ns app.compile-vocab
   (:require [clojure.java.io :as io]
-            [clojure.pprint :as p]
             [clojure.edn :as edn])
   (:import  [org.apache.commons.io FilenameUtils]))
 
