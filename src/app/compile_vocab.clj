@@ -13,5 +13,5 @@
                                  (reduce conj [] (rest (line-seq rdr))))})]
     (io/make-parents "./src/vocab/compiled_vocab.edn")
     (with-open [wrtr (io/writer "./src/vocab/compiled_vocab.edn")]
-      (.write wrtr (pr-str (flatten (map reduce-file files)))))
+      (.write wrtr (pr-str (vec (flatten (map reduce-file files))))))
     (prn (map :title (edn/read (java.io.PushbackReader. (io/reader "./src/vocab/compiled_vocab.edn")))))))
