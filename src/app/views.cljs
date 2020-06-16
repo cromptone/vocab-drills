@@ -1,10 +1,10 @@
-(ns app.views)
-
-(defn button [text]
-  [:button {:on-click #(.alert js/window "hit")} text])
+(ns app.views
+  (:require [shadow.resource :as rc]
+            [clojure.edn :as edn]))
 
 (defn app []
   [:div
    [:h1 "Vocabulary Drills"]
-   (button "Start exercises")
+   (for [title (map :title (edn/read-string (rc/inline "../vocab/compiled_vocab.edn")))]
+     [:button title])
    [:p "More to come"]])
