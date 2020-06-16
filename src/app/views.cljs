@@ -6,5 +6,4 @@
   [:div
    [:h1 "Vocabulary Drills"]
    (for [title (map :title (edn/read-string (rc/inline "../vocab/compiled_vocab.edn")))]
-     [:button title])
-   [:p "More to come"]])
+     [:button {:class "btn1" :key title} title])])
