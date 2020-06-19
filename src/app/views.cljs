@@ -8,5 +8,5 @@
 (defn app []
   [:div
    [:h1 "Vocabulary Drills"]
-   (for [{:keys [vocab title]} (edn/read-string (rc/inline "../vocab/compiled_vocab.edn"))]
+   (for [{:keys [vocab title]} (-> "../vocab/compiled_vocab.edn" rc/inline edn/read-string)]
      [:button {:key title :on-click #(click-fn vocab)} title])])
