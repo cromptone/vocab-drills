@@ -7,7 +7,7 @@
 (defn reduce-file [f]
   (with-open [rdr (io/reader f)]
     {:title (with-open [rdr (io/reader f)]
-              (first (line-seq rdr)))
+              (-> rdr line-seq first))
      :vocab (with-open [rdr (io/reader f)]
               (map #(str/split % #"\t")
                    (reduce
