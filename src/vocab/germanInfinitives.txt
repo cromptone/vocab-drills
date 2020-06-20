@@ -24,7 +24,6 @@ einladen	to invite
 erinnern	to remind
 erklären	to explain
 erwarten	to expect
-erwarten	to expect
 erzählen	to tell
 feiern	to celebrate
 finden	to find
