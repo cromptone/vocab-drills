@@ -5,3 +5,8 @@
  :value
  (fn [db _]
    (:value db)))
+
+(rf/reg-sub
+ :vocab-lists
+ (fn [db _]
+   (:vocab-lists db)))
