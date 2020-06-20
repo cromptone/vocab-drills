@@ -4,7 +4,7 @@
             [clojure.string :as str])
   (:import  [org.apache.commons.io FilenameUtils]))
 
-(defn reduce-file [f]
+(defn parse-file [f]
   {:title (with-open [rdr (io/reader f)]
             (-> rdr line-seq first))
    :vocab (with-open [rdr (io/reader f)]
@@ -19,5 +19,9 @@
         files (->> "./src/vocab" io/file .listFiles (filter txt-file?))]
     (io/make-parents "./src/vocab/compiled_vocab.edn")
     (with-open [wrtr (io/writer "./src/vocab/compiled_vocab.edn")]
-      (.write wrtr (pr-str (vec (flatten (map reduce-file files))))))
+      (->> files
+           (map parse-file)
+           flatten
+           pr-str
+           (.write wrtr)))
     (prn (map :title (edn/read (java.io.PushbackReader. (io/reader "./src/vocab/compiled_vocab.edn")))))))
