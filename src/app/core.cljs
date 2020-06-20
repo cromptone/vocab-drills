@@ -3,10 +3,12 @@
             [re-frame.core :as rf]
             [app.events] ;; These two are required so that
             [app.subs]   ;; the compiler loads them
+            [app.db]
             [app.views :as views]))
 
 (defn ^:dev/after-load start
   []
+  (rf/dispatch-sync [:initialize-db])
   (r/render [views/app]
     (.getElementById js/document "app")))
 
