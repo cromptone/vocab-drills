@@ -5,15 +5,14 @@
   (:import  [org.apache.commons.io FilenameUtils]))
 
 (defn reduce-file [f]
-  (with-open [rdr (io/reader f)]
-    {:title (with-open [rdr (io/reader f)]
-              (-> rdr line-seq first))
-     :vocab (with-open [rdr (io/reader f)]
-              (map #(str/split % #"\t")
-                   (reduce
-                    conj
-                    []
-                    (rest (line-seq rdr)))))}))
+  {:title (with-open [rdr (io/reader f)]
+            (-> rdr line-seq first))
+   :vocab (with-open [rdr (io/reader f)]
+            (->> rdr
+                 line-seq
+                 rest
+                 (reduce conj [])
+                 (map #(str/split % #"\t"))))})
 
 (defn compile-vocab []
   (let [txt-file? #(= "txt" (-> % .getName FilenameUtils/getExtension))
