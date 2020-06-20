@@ -1,8 +1,8 @@
 (ns app.views
   (:require [re-frame.core :as rf]))
 
-(defn click-fn [title]
-  (rf/dispatch [:value (first title)]))
+(defn click-fn [vocab]
+  (rf/dispatch [:value (ffirst vocab)]))
 
 (defn app []
   [:<>
