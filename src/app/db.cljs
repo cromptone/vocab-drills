@@ -4,6 +4,8 @@
             [clojure.edn :as edn]))
 
 (defn initial-app-db []
-  {:vocab-lists (-> "../vocab/compiled_vocab.edn" rc/inline edn/read-string)})
+  {:vocab-lists (->> "../vocab/compiled_vocab.edn"
+                     rc/inline
+                     edn/read-string)})
 
 (rf/reg-event-db :initialize-db (fn [_ _] (initial-app-db)))
