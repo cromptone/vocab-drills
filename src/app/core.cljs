@@ -1,5 +1,5 @@
 (ns app.core
-  (:require [reagent.core :as r]
+  (:require [reagent.dom :as r]
             [re-frame.core :as rf]
             [app.events] ;; These two are required so that
             [app.subs]   ;; the compiler loads them
