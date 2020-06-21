@@ -11,6 +11,7 @@
             (->> rdr
                  line-seq
                  rest
+                 distinct
                  (reduce conj [])
                  (map #(str/split % #"\t"))))})
 
