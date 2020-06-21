@@ -20,4 +20,10 @@
               :background-color "salmon"
               :color "rgb(18, 18, 36)"
               :font-size "20px"
-              :height "40px"}]]))
+              :height "40px"}]
+    [:.cloud-word {:background-color "yellow"
+                   :color dark-back
+                   :display "inline-block"
+                   :padding "5px"
+                   :margin "5px"
+                   :border-radius "5px"}]]))

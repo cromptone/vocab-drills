@@ -9,8 +9,8 @@
     [:button {:key title :on-click #(click-fn vocab)} title]))
 
 (defn exercise []
-  (for [vocab-pairs (:vocab @(rf/subscribe [:current-exercise]))]
-    [:div {:key (first vocab-pairs)} (first vocab-pairs)]))
+  (for [[ger eng] (:vocab @(rf/subscribe [:current-exercise]))]
+    [:div.cloud-word {:key (str ger "-" eng)} eng]))
 
 (defn app []
   [:<>
