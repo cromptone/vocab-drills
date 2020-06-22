@@ -9,7 +9,7 @@
     [:button {:key title :on-click #(click-fn vocab)} title]))
 
 (defn exercise []
-  (for [[idx [ger eng]] (map-indexed vector (:vocab @(rf/subscribe [:current-exercise])))]
+  (for [[idx [ger eng]] (shuffle (map-indexed vector (:vocab @(rf/subscribe [:current-exercise]))))]
     [:div.cloud-word {:key (str idx "-" eng)} (str idx ger)]))
 
 (defn app []
