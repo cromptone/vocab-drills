@@ -2,7 +2,7 @@
   (:require [re-frame.core :as rf]))
 
 (defn click-list [vocab]
-  (rf/dispatch [:current-exercise {:vocab vocab}]))
+  (rf/dispatch [:set-current-exercise {:vocab vocab}]))
 
 (defn click-cloud [e]
   (-> (.. e -target)
