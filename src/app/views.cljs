@@ -6,7 +6,7 @@
 
 (defn click-cloud [e]
   (-> (.. e -target)
-      (.getAttribute "idx")
+      (.getAttribute "correct")
       js/console.log))
 
 (defn lists []
@@ -20,6 +20,7 @@
                              shuffle)]
     [:div.cloud-word {:key (str idx "-" eng)
                       :idx idx
+                      :correct ger
                       :on-click click-cloud}
      (str idx ger)]))
 
