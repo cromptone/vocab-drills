@@ -10,3 +10,8 @@
  :vocab-lists
  (fn [db _]
    (:vocab-lists db)))
+
+(rf/reg-sub
+ :active-exercise?
+ (fn [db _]
+   (boolean (:current-exercise db))))

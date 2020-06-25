@@ -27,5 +27,6 @@
 (defn app []
   [:<>
    [:h1 "Vocabulary Drills"]
-   (lists)
-   (exercise)])
+   (if-not @(rf/subscribe [:active-exercise?])
+     (lists)
+     (exercise))])
