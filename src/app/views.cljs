@@ -14,7 +14,8 @@
     [:button {:key title :on-click #(click-list vocab)} title]))
 
 (defn vocab-input []
-  [:input {:on-key-up #(.log js/console (.. % -target -value))}])
+  [:input {:on-key-up #(.log js/console (.. % -target -value))
+           :auto-focus true}])
 
 (defn return-button []
   [:button {:on-click #(rf/dispatch [:clear-current-exercise])} "Go back"])
