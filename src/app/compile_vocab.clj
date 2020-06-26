@@ -4,16 +4,18 @@
             [clojure.string :as str])
   (:import  [org.apache.commons.io FilenameUtils]))
 
-(defn parse-file [f]
-  {:title (with-open [rdr (io/reader f)]
-            (-> rdr line-seq first))
-   :vocab (with-open [rdr (io/reader f)]
-            (->> rdr
-                 line-seq
-                 rest
-                 distinct
-                 (reduce conj [])
-                 (map #(str/split % #"\t"))))})
+(defn parse-file [idx f]
+  (let [title (with-open [rdr (io/reader f)]
+                (-> rdr line-seq first))]
+    {:title title
+     :id (str idx "_" title)
+     :vocab (with-open [rdr (io/reader f)]
+              (->> rdr
+                   line-seq
+                   rest
+                   distinct
+                   (reduce conj [])
+                   (map #(str/split % #"\t"))))}))
 
 (defn compile-vocab []
   (let [txt-file? #(= "txt" (-> % .getName FilenameUtils/getExtension))
@@ -21,7 +23,7 @@
     (io/make-parents "./src/vocab/compiled_vocab.edn")
     (with-open [wrtr (io/writer "./src/vocab/compiled_vocab.edn")]
       (->> files
-           (map parse-file)
+           (map-indexed parse-file)
            flatten
            pr-str
            (.write wrtr)))
