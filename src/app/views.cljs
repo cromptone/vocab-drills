@@ -13,6 +13,9 @@
   (for [{:keys [vocab title]} @(rf/subscribe [:vocab-lists])]
     [:button {:key title :on-click #(click-list vocab)} title]))
 
+(defn return-button []
+  [:button {:on-click #(rf/dispatch [:clear-current-exercise])} "Go back"])
+
 (defn exercise []
   (for [[idx [ger eng]] (->> @(rf/subscribe [:current-exercise])
                              :vocab
@@ -29,4 +32,6 @@
    [:h1 "Vocabulary Drills"]
    (if-not @(rf/subscribe [:active-exercise?])
      (lists)
-     (exercise))])
+     [:<>
+      (return-button)
+      (exercise)])])

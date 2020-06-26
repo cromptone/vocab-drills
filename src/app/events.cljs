@@ -5,3 +5,8 @@
  :set-current-exercise
  (fn [db [_ exercise]]
    (assoc db :current-exercise exercise)))
+
+(rf/reg-event-db
+ :clear-current-exercise
+ (fn [db [_ _]]
+   (dissoc db :current-exercise)))
