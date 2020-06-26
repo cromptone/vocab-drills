@@ -1,10 +1,10 @@
 (ns app.core
   (:require [reagent.dom :as r]
             [re-frame.core :as rf]
-            [app.events] ;; These two are required so that
-            [app.subs]   ;; the compiler loads them
-            [app.db]
-            [app.views :as views]))
+            [app.views :as views]
+            [app.events]
+            [app.subs]
+            [app.db]))
 
 (defn ^:dev/after-load start
   []
