@@ -4,6 +4,8 @@
             [clojure.string :as str])
   (:import  [org.apache.commons.io FilenameUtils]))
 
+(def COMPILED-DIR "./src/vocab/compiled_vocab.edn")
+
 (defn parse-file [idx f]
   (let [title (with-open [rdr (io/reader f)]
                 (-> rdr line-seq first))]
@@ -20,11 +22,11 @@
 (defn compile-vocab []
   (let [txt-file? #(= "txt" (-> % .getName FilenameUtils/getExtension))
         files (->> "./src/vocab" io/file .listFiles (filter txt-file?))]
-    (io/make-parents "./src/vocab/compiled_vocab.edn")
-    (with-open [wrtr (io/writer "./src/vocab/compiled_vocab.edn")]
+    (io/make-parents COMPILED-DIR)
+    (with-open [wrtr (io/writer COMPILED-DIR)]
       (->> files
            (map-indexed parse-file)
            flatten
            pr-str
            (.write wrtr)))
-    (prn (map :title (edn/read (java.io.PushbackReader. (io/reader "./src/vocab/compiled_vocab.edn")))))))
+    (prn (map :title (edn/read (java.io.PushbackReader. (io/reader COMPILED-DIR)))))))
