@@ -1,6 +1,5 @@
 (ns app.subs
-  (:require [re-frame.core :as rf]
-            [clojure.pprint]))
+  (:require [re-frame.core :as rf]))
 
 (rf/reg-sub
  :vocab-lists
