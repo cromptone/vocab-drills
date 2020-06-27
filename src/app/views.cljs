@@ -1,17 +1,12 @@
 (ns app.views
   (:require [re-frame.core :as rf]))
 
-(defn click-list [vocab]
-  (rf/dispatch [:set-current-exercise {:vocab vocab}]))
-
-(defn click-cloud [e]
-  (-> (.. e -target)
-      (.getAttribute "correct")
-      js/console.log))
+(defn click-list [id]
+  (rf/dispatch [:set-current-exercise id]))
 
 (defn lists []
-  (for [{:keys [vocab title]} @(rf/subscribe [:vocab-lists])]
-    [:button {:key title :on-click #(click-list vocab)} title]))
+  (for [{:keys [title id]} @(rf/subscribe [:vocab-lists])]
+    [:button {:key title :on-click #(click-list id)} title]))
 
 (defn vocab-input []
   [:input {:on-key-up #(.log js/console (.. % -target -value))
@@ -20,11 +15,13 @@
 (defn return-button []
   [:button {:on-click #(rf/dispatch [:clear-current-exercise])} "Go back"])
 
+(defn click-cloud [e]
+  (-> (.. e -target)
+      (.getAttribute "correct")
+      js/console.log))
+
 (defn exercise []
-  (for [[idx [ger eng]] (->> @(rf/subscribe [:current-exercise])
-                             :vocab
-                             (map-indexed vector)
-                             shuffle)]
+  (for [[idx [ger eng]] @(rf/subscribe [:unanswered-vocab])]
     [:div.cloud-word {:key (str idx "-" eng)
                       :idx idx
                       :correct ger
