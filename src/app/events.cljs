@@ -10,8 +10,6 @@
                                                          (filter #(= (:id %) id))
                                                          first
                                                          :vocab
-                                                         count
-                                                         range
                                                          shuffle)}})))
 
 (rf/reg-event-db
