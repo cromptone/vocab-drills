@@ -9,17 +9,21 @@
   (for [{:keys [title id]} @(rf/subscribe [:vocab-lists])]
     [:button {:key title :on-click #(click-list id)} title]))
 
-; (defn input-handler [e]
-;   (let [value (.. e -target -value)
-;         vocab @(rf/subscribe [:unanswered-vocab])]
-;     (when-let [idx (ffirst (filter
-;                             #(= value (first (second %)))
-;                             vocab))]
-;       (rf/dispatch [:add-correct-answer value]))))
+(defn input-handler [e]
+  (let [value (.. e -target -value)
+        vocab @(rf/subscribe [:unanswered-vocab])]
+    (.log js/console value)
+    (when (some #(= value %) (map first vocab))
+      (.log js/console (clojure.pprint/pprint "YES!")))))
+
+    ; (when-let [idx (ffirst (filter
+    ;                         #(= value (first (second %)))
+    ;                         vocab))]
+    ;   (rf/dispatch [:add-correct-answer value]))))
 ;
-; (defn vocab-input []
-;   [:input {:on-key-up input-handler
-;            :auto-focus true}])
+(defn vocab-input []
+  [:input {:on-key-up input-handler
+           :auto-focus true}])
 
 (defn return-button []
   [:button {:on-click #(rf/dispatch [:clear-current-exercise])} "Go back"])
@@ -43,5 +47,5 @@
      (lists)
      [:<>
       (return-button)
-      ; (vocab-input)
+      (vocab-input)
       (exercise)])])
