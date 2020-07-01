@@ -13,6 +13,12 @@
                                                          shuffle)}})))
 
 (rf/reg-event-db
+ :move-vocab-status
+ (fn [db [_ value]]
+   (-> db
+       (update-in [:current-exercise :vocab :unanswered] (fn [vocab] (remove #(= value (first %)) vocab))))))
+
+(rf/reg-event-db
  :clear-current-exercise
  (fn [db [_ _]]
    (dissoc db :current-exercise)))

@@ -12,10 +12,8 @@
 (defn input-handler [e]
   (let [value (.. e -target -value)
         vocab @(rf/subscribe [:unanswered-vocab])]
-    (.log js/console value)
     (when (some #(= value %) (map first vocab))
-      (.log js/console (clojure.pprint/pprint "YES!")))))
-
+      (rf/dispatch [:move-vocab-status value]))))
     ; (when-let [idx (ffirst (filter
     ;                         #(= value (first (second %)))
     ;                         vocab))]
