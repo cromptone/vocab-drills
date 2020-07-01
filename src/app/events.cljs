@@ -5,7 +5,8 @@
  :set-current-exercise
  (fn [db [_ id]]
    (assoc db :current-exercise {:exercise-id id
-                                :vocab {:unanswered (->> db
+                                :vocab {:answered []
+                                        :unanswered (->> db
                                                          :vocab-lists
                                                          (filter #(= (:id %) id))
                                                          first
@@ -16,7 +17,8 @@
  :move-vocab-status
  (fn [db [_ value]]
    (-> db
-       (update-in [:current-exercise :vocab :unanswered] (fn [vocab] (remove #(= value (first %)) vocab))))))
+       (update-in [:current-exercise :vocab :unanswered] (fn [vocab] (remove #(= value (first %)) vocab)))
+       (update-in [:current-exercise :vocab :answered] #(conj % "XXX")))))
 
 (rf/reg-event-db
  :clear-current-exercise
