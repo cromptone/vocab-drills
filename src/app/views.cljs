@@ -12,12 +12,9 @@
 (defn input-handler [e]
   (let [value (.. e -target -value)
         vocab @(rf/subscribe [:unanswered-vocab])]
-    (when (some #(= value %) (map first vocab))
+    (.log js/console (.. e -target -id))
+    (if (some #(= value %) (map first vocab))
       (rf/dispatch [:move-vocab-status value]))))
-    ; (when-let [idx (ffirst (filter
-    ;                         #(= value (first (second %)))
-    ;                         vocab))]
-    ;   (rf/dispatch [:add-correct-answer value]))))
 ;
 (defn vocab-input []
   [:input {:on-key-up input-handler
