@@ -35,6 +35,7 @@
       :correct ger
       :on-click click-cloud}
      (str ger)]))
+
 (defn correct-answers []
   (for [[ger eng] @(rf/subscribe [:answered-vocab])]
     [:div.cloud-word.cloud-word__answered {:key (str "XXX" "-" eng)}
