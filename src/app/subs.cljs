@@ -28,3 +28,9 @@
  :<- [:current-exercise]
  (fn [current-exercise _]
    (get-in current-exercise [:vocab :unanswered])))
+
+(rf/reg-sub
+ :answered-vocab
+ :<- [:current-exercise]
+ (fn [current-exercise _]
+   (get-in current-exercise [:vocab :answered])))
