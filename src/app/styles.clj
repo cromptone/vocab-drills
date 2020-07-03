@@ -21,9 +21,10 @@
               :color "rgb(18, 18, 36)"
               :font-size "20px"
               :height "40px"}]
-    [:.cloud-word {:background-color "yellow"
-                   :color dark-back
+    [:.cloud-word {:color dark-back
                    :display "inline-block"
                    :padding "5px"
                    :margin "5px"
-                   :border-radius "5px"}]]))
+                   :border-radius "5px"}]
+    [:.cloud-word__answered {:background-color "yellow"}]
+    [:.cloud-word__unanswered {:background-color "pink"}]]))
