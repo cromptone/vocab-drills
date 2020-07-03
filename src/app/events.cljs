@@ -19,7 +19,7 @@
    (let [answer (filter #(= value (first %)) (get-in db [:current-exercise :vocab :unanswered]))]
      (-> db
          (update-in [:current-exercise :vocab :unanswered] (fn [vocab] (remove #(= value (first %)) vocab)))
-         (update-in [:current-exercise :vocab :answered] #(conj % answer))))))
+         (update-in [:current-exercise :vocab :answered] #(concat % answer))))))
 
 (rf/reg-event-db
  :clear-current-exercise
