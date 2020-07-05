@@ -4,7 +4,7 @@
             [clojure.string :as str])
   (:import  [org.apache.commons.io FilenameUtils]))
 
-(def COMPILED-DIR "./src/vocab/compiled_vocab.edn")
+(def COMPILED-DIR "../vocab/compiled_vocab.edn")
 
 (defn parse-file [idx f]
   (let [title (with-open [rdr (io/reader f)]
