@@ -31,14 +31,14 @@
 (defn exercise []
   (for [[ger eng] @(rf/subscribe [:unanswered-vocab])]
     [:div.cloud-word.cloud-word__unanswered
-     {:key (str "XXX" "-" eng)
+     {:key (str ger "-" eng)
       :correct ger
       :on-click click-cloud}
      (str ger)]))
 
 (defn correct-answers []
   (for [[ger eng] @(rf/subscribe [:answered-vocab])]
-    [:div.cloud-word.cloud-word__answered {:key (str "XXX" "-" eng)}
+    [:div.cloud-word.cloud-word__answered {:key (str ger "-" eng)}
      (str ger)]))
 
 (defn app []
