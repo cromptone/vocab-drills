@@ -5,7 +5,7 @@
             [clojure.pprint :refer [pprint]])
   (:import  [org.apache.commons.io FilenameUtils]))
 
-(def COMPILED-DIR "../vocab/compiled_vocab.edn")
+(def COMPILED-DIR "src/vocab/compiled_vocab.edn")
 
 (defn parse-file [idx f]
   (let [title (with-open [rdr (io/reader f)]
@@ -22,7 +22,7 @@
 
 (defn compile-vocab []
   (let [txt-file? #(= "txt" (-> % .getName FilenameUtils/getExtension))
-        files (->> "./src/vocab" io/file .listFiles (filter txt-file?))]
+        files (->> "src/vocab" io/file .listFiles (filter txt-file?))]
     (io/make-parents COMPILED-DIR)
     (with-open [wrtr (io/writer COMPILED-DIR)]
       (->> files
