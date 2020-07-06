@@ -12,7 +12,7 @@
   "scripts": {
     "css": "shadow-cljs clj-run app.styles/build;",
     "vocab": "shadow-cljs clj-run app.compile-vocab/compile-vocab;",
-    "release": "yarn css; yarn vocab; shadow-cljs release app",
+    "release": "shadow-cljs release app",
     "dev": "yarn css; yarn vocab; shadow-cljs watch app",
     "start": "shadow-cljs server",
     "clean": "rm -rf target && rm -rf public/js",
