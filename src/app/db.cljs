@@ -4,7 +4,7 @@
             [clojure.edn :as edn]))
 
 (defn initial-app-db []
-  {:vocab-lists (->> "src/vocab/compiled_vocab.edn"
+  {:vocab-lists (->> "../vocab/compiled_vocab.edn"
                      rc/inline
                      edn/read-string)})
 
