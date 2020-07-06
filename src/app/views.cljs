@@ -12,7 +12,6 @@
 (defn input-handler [e]
   (let [value (.. e -target -value)
         vocab @(rf/subscribe [:unanswered-vocab])]
-    (.log js/console (.. e -target -id))
     (if (some #(= value %) (map first vocab))
       (rf/dispatch [:move-vocab-status value]))))
 ;
