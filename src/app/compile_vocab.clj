@@ -1,7 +1,8 @@
 (ns app.compile-vocab
   (:require [clojure.java.io :as io]
             [clojure.edn :as edn]
-            [clojure.string :as str])
+            [clojure.string :as str]
+            [clojure.pprint :refer [pprint]])
   (:import  [org.apache.commons.io FilenameUtils]))
 
 (def COMPILED-DIR "../vocab/compiled_vocab.edn")
@@ -29,4 +30,4 @@
            flatten
            pr-str
            (.write wrtr)))
-    (prn (map :title (edn/read (java.io.PushbackReader. (io/reader COMPILED-DIR)))))))
+    (pprint (map :title (edn/read (java.io.PushbackReader. (io/reader COMPILED-DIR)))))))
