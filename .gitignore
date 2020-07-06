@@ -5,7 +5,6 @@
 .nrepl-port
 yarn.lock
 yarn-error.log
-package-lock.json
 .DS_store
 compiled_vocab.edn
 styles.css
