@@ -3,9 +3,9 @@
             [shadow.resource :as rc]
             [clojure.edn :as edn]))
 
-(defn initial-app-db []
-  {:vocab-lists (->> "../vocab/compiled_vocab.edn"
-                     rc/inline
-                     edn/read-string)})
+(defn initial-app-db [])
+  ; {:vocab-lists (->> "../vocab/compiled_vocab.edn"
+  ;                    rc/inline
+  ;                    edn/read-string)})
 
 (rf/reg-event-db :initialize-db (fn [_ _] (initial-app-db)))
