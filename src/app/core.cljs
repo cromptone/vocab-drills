@@ -4,7 +4,8 @@
             [app.views :as views]
             [app.events]
             [app.subs]
-            [app.db]))
+            [app.db]
+            [app.router]))
 
 (defn ^:dev/after-load start
   []
@@ -14,4 +15,5 @@
 
 (defn ^:export init
   []
+  (app.router/start!)
   (start))
