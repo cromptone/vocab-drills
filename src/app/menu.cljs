@@ -1,4 +1,6 @@
 (ns app.menu)
 
 (defn menu []
-  [:nav "Menu"])
+  [:nav "Menu"
+   [:a {:href "/about"} "About"]
+   [:a {:href "/exercise"} "Exercise"]])
