@@ -1,4 +1,4 @@
-(ns app.menu
+(ns app.components.menu
   (:require [app.router :as router]))
 
 (defn menu-item [{:keys [name page]}]

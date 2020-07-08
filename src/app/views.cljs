@@ -1,6 +1,6 @@
 (ns app.views
   (:require [re-frame.core :as rf]
-            [app.menu :refer [menu]]
+            [app.components.menu :refer [menu]]
             [app.components.about :refer [about]]))
             ; [clojure.pprint]))
 
