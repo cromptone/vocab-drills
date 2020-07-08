@@ -1,8 +1,5 @@
-(ns app.views
-  (:require [re-frame.core :as rf]
-            [app.components.menu :refer [menu]]
-            [app.components.about :refer [about]]))
-            ; [clojure.pprint]))
+(ns app.components.exercise
+  (:require [re-frame.core :as rf]))
 
 (defn click-list [id]
   (rf/dispatch [:set-current-exercise id]))
@@ -29,7 +26,7 @@
       (.getAttribute "correct")
       js/console.log))
 
-(defn exercise []
+(defn cloud []
   (for [[ger eng] @(rf/subscribe [:unanswered-vocab])]
     [:div.cloud-word.cloud-word__unanswered
      {:key (str ger "-" eng)
@@ -42,17 +39,11 @@
     [:div.cloud-word.cloud-word__answered {:key (str ger "-" eng)}
      (str ger)]))
 
-(defn app []
-  (let [page-kw @(rf/subscribe [:page])]
+(defn exercise []
+  (if-not @(rf/subscribe [:active-exercise?])
+    (lists)
     [:<>
-     (menu)
-     [:h1 "Vocabulary Drills"
-      (case page-kw
-        :about (about)
-        (if-not @(rf/subscribe [:active-exercise?])
-          (lists)
-          [:<>
-           (return-button)
-           (vocab-input)
-           (exercise)
-           (correct-answers)]))]]))
+     (return-button)
+     (vocab-input)
+     (cloud)
+     (correct-answers)]))

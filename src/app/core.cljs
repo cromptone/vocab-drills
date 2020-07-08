@@ -1,7 +1,7 @@
 (ns app.core
   (:require [reagent.dom :as r]
             [re-frame.core :as rf]
-            [app.views :as views]
+            [app.components.main-view :as views]
             [app.events]
             [app.subs]
             [app.db]
