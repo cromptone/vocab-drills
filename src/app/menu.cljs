@@ -1,4 +1,4 @@
 (ns app.menu)
 
 (defn menu []
-  [:p "Menu"])
+  [:nav "Menu"])
