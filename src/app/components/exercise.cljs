@@ -21,17 +21,11 @@
 (defn return-button []
   [:button {:on-click #(rf/dispatch [:clear-current-exercise])} "Go back"])
 
-(defn click-cloud [e]
-  (-> (.. e -target)
-      (.getAttribute "correct")
-      js/console.log))
-
 (defn cloud []
   (for [[ger eng] @(rf/subscribe [:unanswered-vocab])]
     [:div.cloud-word.cloud-word__unanswered
      {:key (str ger "-" eng)
-      :correct ger
-      :on-click click-cloud}
+      :correct ger}
      (str ger)]))
 
 (defn correct-answers []
