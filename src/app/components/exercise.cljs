@@ -37,11 +37,14 @@
     [:div.cloud-word.cloud-word__answered {:key (str ger "-" eng)}
      (str ger)]))
 
+(defn input-&-word-cloud []
+  [:<>
+   (return-button)
+   (vocab-input)
+   (cloud)
+   (correct-answers)])
+
 (defn exercise []
   (if-not @(rf/subscribe [:active-exercise?])
     (lists)
-    [:<>
-     (return-button)
-     (vocab-input)
-     (cloud)
-     (correct-answers)]))
+    (input-&-word-cloud)))
