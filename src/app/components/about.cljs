@@ -1,4 +1,4 @@
-(ns app.about)
+(ns app.components.about)
 
 (defn about []
   [:<>

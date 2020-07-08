@@ -1,7 +1,7 @@
 (ns app.views
   (:require [re-frame.core :as rf]
             [app.menu :refer [menu]]
-            [app.about :refer [about]]))
+            [app.components.about :refer [about]]))
             ; [clojure.pprint]))
 
 (defn click-list [id]
