@@ -1,7 +1,7 @@
 (ns app.core
   (:require [reagent.dom :as r]
             [re-frame.core :as rf]
-            [app.components.main-view :as views]
+            [app.components.main-view :refer [app]]
             [app.events]
             [app.subs]
             [app.db]
@@ -10,7 +10,7 @@
 (defn ^:dev/after-load start
   []
   (rf/dispatch-sync [:initialize-db])
-  (r/render [views/app]
+  (r/render [app]
     (.getElementById js/document "app")))
 
 (defn ^:export init
