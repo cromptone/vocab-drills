@@ -34,3 +34,8 @@
  :<- [:current-exercise]
  (fn [current-exercise _]
    (get-in current-exercise [:vocab :answered])))
+
+(rf/reg-sub
+ :page
+ (fn [db _]
+   (:page db)))

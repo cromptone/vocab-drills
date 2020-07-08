@@ -25,3 +25,8 @@
  :clear-current-exercise
  (fn [db [_ _]]
    (dissoc db :current-exercise)))
+
+(rf/reg-event-db
+ :set-page
+ (fn [db [_ {:keys [handler]}]]
+   (assoc db :page handler)))

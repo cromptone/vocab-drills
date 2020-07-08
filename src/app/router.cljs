@@ -1,18 +1,15 @@
 (ns app.router
   (:require [bidi.bidi :as bidi]
-            [pushy.core :as pushy]))
-
-(def state (atom {}))
+            [pushy.core :as pushy]
+            [re-frame.core :as rf]))
 
 (def app-routes
   ["/" {"" :exercises
-        "about " :about}])
-
-(defn set-page! [match]
-  (swap! state assoc :page match))
+        "about" :about}])
 
 (def history
-  (pushy/pushy set-page! (partial bidi/match-route app-routes)))
+  (pushy/pushy #(rf/dispatch [:set-page %])
+               (partial bidi/match-route app-routes)))
 
 (defn start! []
   (pushy/start! history))

@@ -1,6 +1,6 @@
 (ns app.views
-  (:require [re-frame.core :as rf]))
-            ; [clojure.pprint]))
+  (:require [re-frame.core :as rf]
+            [clojure.pprint]))
 
 (defn click-list [id]
   (rf/dispatch [:set-current-exercise id]))
@@ -41,12 +41,16 @@
      (str ger)]))
 
 (defn app []
-  [:<>
-   [:h1 "Vocabulary Drills"]
-   (if-not @(rf/subscribe [:active-exercise?])
-     (lists)
-     [:<>
-      (return-button)
-      (vocab-input)
-      (exercise)
-      (correct-answers)])])
+  (let [page-kw @(rf/subscribe [:page])]
+    (.log js/console (str "kw: " page-kw))
+    [:<>
+     [:h1 "Vocabulary Drills"
+      (case page-kw
+        :about [:p "About me"]
+        (if-not @(rf/subscribe [:active-exercise?])
+          (lists)
+          [:<>
+           (return-button)
+           (vocab-input)
+           (exercise)
+           (correct-answers)]))]]))
