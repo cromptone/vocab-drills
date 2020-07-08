@@ -43,7 +43,6 @@
 
 (defn app []
   (let [page-kw @(rf/subscribe [:page])]
-    (.log js/console (str "kw: " page-kw))
     [:<>
      (menu)
      [:h1 "Vocabulary Drills"
