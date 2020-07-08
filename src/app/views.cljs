@@ -1,6 +1,6 @@
 (ns app.views
-  (:require [re-frame.core :as rf]
-            [clojure.pprint]))
+  (:require [re-frame.core :as rf]))
+            ; [clojure.pprint]))
 
 (defn click-list [id]
   (rf/dispatch [:set-current-exercise id]))
