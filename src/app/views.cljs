@@ -1,5 +1,6 @@
 (ns app.views
   (:require [re-frame.core :as rf]
+            [app.menu :refer [menu]]
             [clojure.pprint]))
 
 (defn click-list [id]
@@ -44,6 +45,7 @@
   (let [page-kw @(rf/subscribe [:page])]
     (.log js/console (str "kw: " page-kw))
     [:<>
+     (menu)
      [:h1 "Vocabulary Drills"
       (case page-kw
         :about [:p "About me"]
