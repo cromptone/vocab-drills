@@ -1,12 +1,11 @@
 (ns app.components.exercise
   (:require [re-frame.core :as rf]))
 
-(defn click-list [id]
-  (rf/dispatch [:set-current-exercise id]))
-
 (defn lists []
   (for [{:keys [title id]} @(rf/subscribe [:vocab-lists])]
-    [:button {:key title :on-click #(click-list id)} title]))
+    [:button {:key title
+              :on-click #(rf/dispatch [:set-current-exercise id])}
+     title]))
 
 (defn input-handler [e]
   (let [value (.. e -target -value)
