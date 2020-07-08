@@ -16,32 +16,22 @@
         (rf/dispatch [:move-vocab-status value])
         (-> js/document (.getElementById "vocab-input") .-value (set! ""))))))
 
-(defn vocab-input []
-  [:input {:id "vocab-input"
-           :on-key-up input-handler
-           :auto-focus true}])
-
-(defn return-button []
-  [:button {:on-click #(rf/dispatch [:clear-current-exercise])} "Go back"])
-
-(defn cloud []
+(defn unanswered-cloud []
   (for [[ger eng] @(rf/subscribe [:unanswered-vocab])]
-    [:div.cloud-word.cloud-word__unanswered
-     {:key (str ger "-" eng)
-      :correct ger}
-     (str ger)]))
+    [:div.cloud-word.cloud-word__unanswered {:key (str ger "-" eng)}
+     (str eng)]))
 
-(defn correct-answers []
+(defn answered-cloud []
   (for [[ger eng] @(rf/subscribe [:answered-vocab])]
     [:div.cloud-word.cloud-word__answered {:key (str ger "-" eng)}
-     (str ger)]))
+     (str ger " → " eng)]))
 
 (defn input-&-word-cloud []
   [:<>
-   (return-button)
-   (vocab-input)
-   (cloud)
-   (correct-answers)])
+   [:button {:on-click #(rf/dispatch [:clear-current-exercise])} "Go back"]
+   [:input {:id "vocab-input" :on-key-up input-handler :auto-focus true}]
+   (unanswered-cloud)
+   (answered-cloud)])
 
 (defn exercise []
   (if-not @(rf/subscribe [:active-exercise?])
