@@ -10,7 +10,7 @@
   (let [page-kw @(rf/subscribe [:page])]
     [:<>
      (menu)
-     [:h1 "Vocabulary Drills"
-      (case page-kw
-        :about (about)
-        (exercise))]]))
+     [:h1 "Vocabulary Drills"]
+     (case page-kw
+       :about (about)
+       (exercise))]))
