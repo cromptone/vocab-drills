@@ -4,8 +4,11 @@
             [re-frame.core :as rf]))
 
 (def app-routes
-  ["/" {"" :exercises
+  ["/" {"exercise" :exercise
         "about" :about}])
+
+(defn router-path [route]
+  (bidi/path-for app-routes route))
 
 (def history
   (pushy/pushy #(rf/dispatch [:set-page %])

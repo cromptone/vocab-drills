@@ -1,17 +1,16 @@
-(ns app.menu)
+(ns app.menu
+  (:require [app.router :as router]))
 
-(defn menu-item [{:keys [name href page]}]
+(defn menu-item [{:keys [name page]}]
   [:a {:on-click (:set-page page)
-       :href href
+       :href (router/router-path page)
        :key name}
    name])
 
 (def menu-items
   [{:name "Exercises"
-    :href "/exercises"
-    :page :about}
+    :page :exercise}
    {:name "About"
-    :href "/about"
     :page :about}])
 
 (defn menu []
