@@ -1,7 +1,8 @@
 (ns app.views
   (:require [re-frame.core :as rf]
             [app.menu :refer [menu]]
-            [clojure.pprint]))
+            [app.about :refer [about]]))
+            ; [clojure.pprint]))
 
 (defn click-list [id]
   (rf/dispatch [:set-current-exercise id]))
@@ -47,7 +48,7 @@
      (menu)
      [:h1 "Vocabulary Drills"
       (case page-kw
-        :about [:p "About me"]
+        :about (about)
         (if-not @(rf/subscribe [:active-exercise?])
           (lists)
           [:<>
