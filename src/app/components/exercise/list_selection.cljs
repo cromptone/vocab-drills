@@ -9,8 +9,10 @@
 
 (defn exercise-options []
   [:div
-   [:button "Exercise A"]
-   [:button "Exercise B"]])
+   [:button {:on-click #(rf/dispatch [:set-exercise-option :a])}
+    "Exercise A"]
+   [:button {:on-click #(rf/dispatch [:set-exercise-option :b])}
+    "Exercise B"]])
 
 (defn lists []
   [:<>
