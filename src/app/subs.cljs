@@ -49,6 +49,16 @@
    (:answered vocab)))
 
 (rf/reg-sub
+ :correct-answers
+ :<- [:exercise-option]
+ :<- [:unanswered-vocab]
+ (fn [[exercise-option unanswered-vocab] _]
+   (case exercise-option
+     :word-cloud unanswered-vocab
+     :prompt (take 1 unanswered-vocab)
+     unanswered-vocab)))
+
+(rf/reg-sub
  :page
  (fn [db _]
    (:page db)))

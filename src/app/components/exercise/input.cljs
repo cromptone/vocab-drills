@@ -3,7 +3,7 @@
 
 (defn input-handler [e]
   (let [value (.. e -target -value)
-        vocab @(rf/subscribe [:unanswered-vocab])
+        vocab @(rf/subscribe [:correct-answers])
         input-value-correct? (some #(= value %) (map first vocab))]
     (when input-value-correct?
       (do
