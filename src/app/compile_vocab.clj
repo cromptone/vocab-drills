@@ -8,7 +8,8 @@
 (def COMPILED-DIR "./src/vocab/compiled_vocab.edn")
 
 (defn parse-file [idx f]
-  (let [title (with-open [rdr (io/reader f)]
+  (let [trim-in-coll (fn [coll] (map str/trim coll))
+        title (with-open [rdr (io/reader f)]
                 (-> rdr line-seq first))]
     {:title title
      :id (str idx "_" title)
@@ -18,7 +19,9 @@
                    rest
                    distinct
                    (reduce conj [])
-                   (map #(str/split % #"\t"))))}))
+                   (map #(-> %
+                             (str/split #"\t")
+                             trim-in-coll))))}))
 
 (defn compile-vocab []
   (let [txt-file? #(= "txt" (-> % .getName FilenameUtils/getExtension))
