@@ -2,7 +2,8 @@
   (:require [re-frame.core :as rf]
             [app.components.exercise.list-selection :as list-selection]
             [app.components.exercise.buttons :as buttons]
-            [app.components.exercise.input :as input]))
+            [app.components.exercise.input :as input]
+            [clojure.string :as str]))
 
 (defn unanswered-cloud []
   (for [[ger eng] @(rf/subscribe [:unanswered-vocab])]
@@ -15,11 +16,16 @@
      (str ger " → " eng)]))
 
 (defn input-&-word-cloud []
-  [:<>
-   (buttons/buttons)
-   (input/input)
-   (unanswered-cloud)
-   (answered-cloud)])
+  (let [option @(rf/subscribe [:exercise-option])]
+    (.log js/console (str option))
+    [:<>
+     (buttons/buttons)
+     (when (= option :prompt)
+       [:p (-> @(rf/subscribe [:correct-answers]) first second)])
+     (input/input)
+     (when (= option :word-cloud)
+       (unanswered-cloud))
+     (answered-cloud)]))
 
 (defn exercise []
   (if @(rf/subscribe [:active-exercise?])
