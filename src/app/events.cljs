@@ -30,6 +30,11 @@
          (update-in [:exercise :vocab :answered] #(concat % answer))))))
 
 (rf/reg-event-db
+ :remove-20-words
+ (fn [db [_ _]]
+   (update-in db [:exercise :vocab :unanswered] (partial drop 20))))
+
+(rf/reg-event-db
  :clear-exercise
  (fn [db [_ _]]
    (dissoc db :exercise)))
