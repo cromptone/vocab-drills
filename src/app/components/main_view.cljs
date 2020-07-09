@@ -3,8 +3,6 @@
             [app.components.menu :refer [menu]]
             [app.components.exercise.exercise :refer [exercise]]
             [app.components.about :refer [about]]))
-            ; [clojure.pprint]))
-
 
 (defn app []
   (let [page-kw @(rf/subscribe [:page])]
