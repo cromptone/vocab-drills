@@ -1,4 +1,4 @@
-(ns app.components.exercise
+(ns app.components.exercise.exercise
   (:require [re-frame.core :as rf]))
 
 (defn lists []
