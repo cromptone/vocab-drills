@@ -1,11 +1,6 @@
 (ns app.components.exercise.exercise
-  (:require [re-frame.core :as rf]))
-
-(defn lists []
-  (for [{:keys [title id]} @(rf/subscribe [:vocab-lists])]
-    [:button {:key title
-              :on-click #(rf/dispatch [:set-current-exercise id])}
-     title]))
+  (:require [re-frame.core :as rf]
+            [app.components.exercise.list-selection :as list-selection]))
 
 (defn input-handler [e]
   (let [value (.. e -target -value)
@@ -35,5 +30,5 @@
 
 (defn exercise []
   (if-not @(rf/subscribe [:active-exercise?])
-    (lists)
+    (list-selection/lists)
     (input-&-word-cloud)))
