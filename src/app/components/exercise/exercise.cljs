@@ -29,6 +29,7 @@
    (answered-cloud)])
 
 (defn exercise []
-  (if-not @(rf/subscribe [:active-exercise?])
-    (list-selection/lists)
-    (input-&-word-cloud)))
+  (if @(rf/subscribe [:active-exercise?])
+    (input-&-word-cloud)
+    (list-selection/lists)))
+
