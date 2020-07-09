@@ -23,7 +23,7 @@
 
 (defn input-&-word-cloud []
   [:<>
-   [:button {:on-click #(rf/dispatch [:clear-current-exercise])} "Go back"]
+   [:button {:on-click #(rf/dispatch [:clear-exercise])} "Go back"]
    [:input {:id "vocab-input" :on-key-up input-handler :auto-focus true}]
    (unanswered-cloud)
    (answered-cloud)])
@@ -32,4 +32,3 @@
   (if @(rf/subscribe [:active-exercise?])
     (input-&-word-cloud)
     (list-selection/lists)))
-
