@@ -20,6 +20,16 @@
                                                       shuffle)))))
 
 (rf/reg-event-db
+ :reset
+ (fn [db [_ _]]
+   (let [answered (get-in db [:exercise :vocab :answered])]
+     (-> db
+         (assoc-in [:exercise :vocab :answered] [])
+         (update-in [:exercise :vocab :unanswered] #(->> %
+                                                         (concat answered)
+                                                         shuffle))))))
+
+(rf/reg-event-db
  :move-vocab-status
  (fn [db [_ value]]
    (let [remove-answer (fn [vocab] (remove #(= value (first %)) vocab))

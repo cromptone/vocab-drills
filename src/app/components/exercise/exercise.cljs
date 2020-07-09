@@ -25,7 +25,7 @@
   [:<>
    [:button {:on-click #(rf/dispatch [:clear-exercise])} "Go back"]
    [:button {:on-click #(rf/dispatch [:remove-20-words])} "Remove 20"]
-
+   [:button {:on-click #(rf/dispatch [:reset])} "Reset exercise"]
    [:input {:id "vocab-input" :on-key-up input-handler :auto-focus true}]
    (unanswered-cloud)
    (answered-cloud)])
