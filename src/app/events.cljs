@@ -2,7 +2,7 @@
   (:require [re-frame.core :as rf]))
 
 (rf/reg-event-db
- :set-current-exercise
+ :set-vocab-list
  (fn [db [_ id]]
    (assoc db :current-exercise {:exercise-id id
                                 :vocab {:answered []
