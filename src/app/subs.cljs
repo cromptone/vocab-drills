@@ -7,33 +7,46 @@
    (:vocab-lists db)))
 
 (rf/reg-sub
- :current-exercise
+ :exercise
  (fn [db _]
-   (:current-exercise db)))
+   (:exercise db)))
 
 (rf/reg-sub
- :current-exercise-id
- :<- [:current-exercise]
- (fn [current-exercise _]
-   (:exercise-id current-exercise)))
+ :vocab
+ :<- [:exercise]
+ (fn [exercise _]
+   (:vocab exercise)))
+
+(rf/reg-sub
+ :exercise-id
+ :<- [:exercise]
+ (fn [exercise _]
+   (:exercise-id exercise)))
+
+(rf/reg-sub
+ :exercise-option
+ :<- [:exercise]
+ (fn [exercise _]
+   (:exercise-option exercise)))
 
 (rf/reg-sub
  :active-exercise?
- :<- [:current-exercise]
- (fn [current-exercise _]
-   (boolean current-exercise)))
+ :<- [:exercise-id]
+ :<- [:exercise-option]
+ (fn [[exercise-option exercise-id] _]
+   (boolean (and exercise-id exercise-option))))
 
 (rf/reg-sub
  :unanswered-vocab
- :<- [:current-exercise]
- (fn [current-exercise _]
-   (get-in current-exercise [:vocab :unanswered])))
+ :<- [:vocab]
+ (fn [vocab _]
+   (:unanswered vocab)))
 
 (rf/reg-sub
  :answered-vocab
- :<- [:current-exercise]
- (fn [current-exercise _]
-   (get-in current-exercise [:vocab :answered])))
+ :<- [:vocab]
+ (fn [vocab _]
+   (:answered vocab)))
 
 (rf/reg-sub
  :page
