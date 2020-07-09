@@ -11,20 +11,22 @@
  (fn [db [_ id]]
    (-> db
        (assoc-in [:exercise :exercise-id] id)
-       (assoc-in [:exercise :vocab] {:answered []
-                                     :unanswered (->> db
+       (assoc-in [:exercise :vocab :answered] [])
+       (assoc-in [:exercise :vocab :unanswered]  (->> db
                                                       :vocab-lists
                                                       (filter #(= (:id %) id))
                                                       first
                                                       :vocab
-                                                      shuffle)}))))
+                                                      shuffle)))))
 
 (rf/reg-event-db
  :move-vocab-status
  (fn [db [_ value]]
-   (let [answer (filter #(= value (first %)) (get-in db [:exercise :vocab :unanswered]))]
+   (let [remove-answer (fn [vocab] (remove #(= value (first %)) vocab))
+         answer (filter #(= value (first %))
+                        (get-in db [:exercise :vocab :unanswered]))]
      (-> db
-         (update-in [:exercise :vocab :unanswered] (fn [vocab] (remove #(= value (first %)) vocab)))
+         (update-in [:exercise :vocab :unanswered] remove-answer)
          (update-in [:exercise :vocab :answered] #(concat % answer))))))
 
 (rf/reg-event-db
