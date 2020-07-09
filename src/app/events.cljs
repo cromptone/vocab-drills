@@ -2,29 +2,35 @@
   (:require [re-frame.core :as rf]))
 
 (rf/reg-event-db
+ :set-exercise-option
+ (fn [db [_ id]]
+   (assoc-in db [:exercise :exercise-option] id)))
+
+(rf/reg-event-db
  :set-vocab-list
  (fn [db [_ id]]
-   (assoc db :current-exercise {:exercise-id id
-                                :vocab {:answered []
-                                        :unanswered (->> db
-                                                         :vocab-lists
-                                                         (filter #(= (:id %) id))
-                                                         first
-                                                         :vocab
-                                                         shuffle)}})))
+   (-> db
+       (assoc-in [:exercise :exercise-id] id)
+       (assoc-in [:exercise :vocab] {:answered []
+                                     :unanswered (->> db
+                                                      :vocab-lists
+                                                      (filter #(= (:id %) id))
+                                                      first
+                                                      :vocab
+                                                      shuffle)}))))
 
 (rf/reg-event-db
  :move-vocab-status
  (fn [db [_ value]]
-   (let [answer (filter #(= value (first %)) (get-in db [:current-exercise :vocab :unanswered]))]
+   (let [answer (filter #(= value (first %)) (get-in db [:exercise :vocab :unanswered]))]
      (-> db
-         (update-in [:current-exercise :vocab :unanswered] (fn [vocab] (remove #(= value (first %)) vocab)))
-         (update-in [:current-exercise :vocab :answered] #(concat % answer))))))
+         (update-in [:exercise :vocab :unanswered] (fn [vocab] (remove #(= value (first %)) vocab)))
+         (update-in [:exercise :vocab :answered] #(concat % answer))))))
 
 (rf/reg-event-db
- :clear-current-exercise
+ :clear-exercise
  (fn [db [_ _]]
-   (dissoc db :current-exercise)))
+   (dissoc db :exercise)))
 
 (rf/reg-event-db
  :set-page
