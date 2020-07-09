@@ -1,6 +1,7 @@
 (ns app.components.exercise.exercise
   (:require [re-frame.core :as rf]
-            [app.components.exercise.list-selection :as list-selection]))
+            [app.components.exercise.list-selection :as list-selection]
+            [app.components.exercise.buttons :as buttons]))
 
 (defn input-handler [e]
   (let [value (.. e -target -value)
@@ -23,9 +24,7 @@
 
 (defn input-&-word-cloud []
   [:<>
-   [:button {:on-click #(rf/dispatch [:clear-exercise])} "Go back"]
-   [:button {:on-click #(rf/dispatch [:remove-20-words])} "Remove 20"]
-   [:button {:on-click #(rf/dispatch [:reset])} "Reset exercise"]
+   (buttons/buttons)
    [:input {:id "vocab-input" :on-key-up input-handler :auto-focus true}]
    (unanswered-cloud)
    (answered-cloud)])
