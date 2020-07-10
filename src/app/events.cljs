@@ -47,10 +47,13 @@
 (rf/reg-event-db
  :redo-with-missed
  (fn [db [_ _]]
-   (let [incorrect (get-incorrect db)]
+   (let [answered (get-answered db)
+         incorrect (get-incorrect db)]
      (-> db
          (clear-answered)
          (clear-incorrect)
+         (update-in [:exercise :vocab :dropped]
+                    #(concat % answered))
          (update-in [:exercise :vocab :unanswered]
                     #(->> % (concat incorrect) shuffle))))))
 
