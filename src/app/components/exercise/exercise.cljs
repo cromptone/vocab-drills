@@ -14,6 +14,11 @@
     [:div.cloud-word.cloud-word__answered {:key (str ger "-" eng)}
      (str ger " → " eng)]))
 
+(defn incorrect-cloud []
+  (for [[ger eng] @(rf/subscribe [:incorrect-vocab])]
+    [:div.cloud-word.cloud-word__incorrect {:key (str ger "-" eng)}
+     (str ger " → " eng)]))
+
 (defn input-&-word-cloud []
   (let [option @(rf/subscribe [:exercise-option])]
     (.log js/console (str option))
@@ -24,7 +29,8 @@
      (input/input)
      (when (= option :word-cloud)
        (unanswered-cloud))
-     (answered-cloud)]))
+     (answered-cloud)
+     (incorrect-cloud)]))
 
 (defn exercise []
   (if @(rf/subscribe [:active-exercise?])

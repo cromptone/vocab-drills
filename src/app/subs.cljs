@@ -43,6 +43,12 @@
    (:unanswered vocab)))
 
 (rf/reg-sub
+ :incorrect-vocab
+ :<- [:vocab]
+ (fn [vocab _]
+   (:incorrect vocab)))
+
+(rf/reg-sub
  :answered-vocab
  :<- [:vocab]
  (fn [vocab _]

@@ -27,4 +27,5 @@
                    :margin "5px"
                    :border-radius "5px"}]
     [:.cloud-word__answered {:background-color "yellow"}]
+    [:.cloud-word__incorrect {:background-color "orange"}]
     [:.cloud-word__unanswered {:background-color "pink"}]]))
