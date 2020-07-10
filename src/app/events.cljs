@@ -4,9 +4,11 @@
 (defn get-unanswered [db] (get-in db [:exercise :vocab :unanswered]))
 (defn get-dropped    [db] (get-in db [:exercise :vocab :dropped]))
 (defn get-answered   [db] (get-in db [:exercise :vocab :answered]))
+(defn get-incorrect   [db] (get-in db [:exercise :vocab :incorrect]))
 
-(defn clear-answered [db] (assoc-in db [:exercise :vocab :answered] []))
-(defn clear-dropped  [db] (assoc-in db [:exercise :vocab :dropped] []))
+(defn clear-answered  [db] (assoc-in db [:exercise :vocab :answered] []))
+(defn clear-dropped   [db] (assoc-in db [:exercise :vocab :dropped] []))
+(defn clear-incorrect [db] (assoc-in db [:exercise :vocab :incorrect] []))
 
 (rf/reg-event-db
  :set-exercise-option
@@ -20,6 +22,7 @@
        (assoc-in [:exercise :exercise-id] id)
        clear-answered
        clear-dropped
+       clear-incorrect
        (assoc-in [:exercise :vocab :unanswered]  (->> db
                                                       :vocab-lists
                                                       (filter #(= (:id %) id))
@@ -31,15 +34,17 @@
  :reset
  (fn [db [_ _]]
    (let [answered (get-answered db)
-         dropped (get-dropped db)]
+         dropped (get-dropped db)
+         incorrect (get-incorrect db)]
      (-> db
          (clear-answered)
          (clear-dropped)
+         (clear-incorrect)
          (update-in [:exercise :vocab :unanswered]
-                    #(->> % (concat answered dropped) shuffle))))))
+                    #(->> % (concat answered dropped incorrect) shuffle))))))
 
 (rf/reg-event-db
- :move-vocab-status
+ :move-correct-vocab
  (fn [db [_ value]]
    (let [remove-answer (fn [vocab] (remove #(= value (first %)) vocab))
          answer (filter #(= value (first %))
@@ -47,6 +52,14 @@
      (-> db
          (update-in [:exercise :vocab :unanswered] remove-answer)
          (update-in [:exercise :vocab :answered] #(concat % answer))))))
+
+(rf/reg-event-db
+ :move-incorrect-vocab
+ (fn [db [_ _]]
+   (let [[incorrect unanswered] (split-at 1 (get-unanswered db))]
+     (-> db
+         (update-in [:exercise :vocab :incorrect] #(concat % incorrect))
+         (assoc-in [:exercise :vocab :unanswered] unanswered)))))
 
 (rf/reg-event-db
  :remove-20-words
