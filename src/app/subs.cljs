@@ -40,7 +40,7 @@
  :show-unanswered-cloud?
  :<- [:exercise-option]
  (fn [exercise-option _]
-   (boolean (= exercise-option :word-cloud))))
+   (= exercise-option :word-cloud)))
 
 (rf/reg-sub
  :unanswered-vocab
@@ -69,6 +69,14 @@
      :word-cloud unanswered-vocab
      :prompt (take 1 unanswered-vocab)
      unanswered-vocab)))
+
+(rf/reg-sub
+ :prompt-text
+ :<- [:exercise-option]
+ :<- [:correct-answers]
+ (fn [[exercise-option correct-answers] _]
+   (when (= exercise-option :prompt)
+     (-> correct-answers first second))))
 
 (rf/reg-sub
  :page

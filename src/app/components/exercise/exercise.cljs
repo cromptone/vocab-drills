@@ -6,15 +6,13 @@
             [app.components.exercise.clouds :as cloud]))
 
 (defn input-&-word-cloud []
-  (let [option @(rf/subscribe [:exercise-option])]
-    [:<>
-     (buttons/buttons)
-     (when (= option :prompt)
-       [:p (-> @(rf/subscribe [:correct-answers]) first second)])
-     (input/input)
-     (cloud/unanswered-cloud)
-     (cloud/answered-cloud)
-     (cloud/incorrect-cloud)]))
+  [:<>
+   (buttons/buttons)
+   [:p @(rf/subscribe [:prompt-text])]
+   (input/input)
+   (cloud/unanswered-cloud)
+   (cloud/answered-cloud)
+   (cloud/incorrect-cloud)])
 
 (defn exercise []
   (if @(rf/subscribe [:active-exercise?])
