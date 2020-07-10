@@ -2,8 +2,7 @@
   (:require [re-frame.core :as rf]
             [app.components.exercise.list-selection :as list-selection]
             [app.components.exercise.buttons :as buttons]
-            [app.components.exercise.input :as input]
-            [clojure.string :as str]))
+            [app.components.exercise.input :as input]))
 
 (defn unanswered-cloud []
   (for [[ger eng] @(rf/subscribe [:unanswered-vocab])]
