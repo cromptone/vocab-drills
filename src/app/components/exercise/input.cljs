@@ -2,7 +2,7 @@
   (:require [re-frame.core :as rf]))
 
 (defn input-handler [e]
-  (when (= (.. e -keyCode) 13)
+  (when (= (.. e -key) "Enter")
     (let [value (.. e -target -value)
           vocab @(rf/subscribe [:correct-answers])
           input-value-correct? (some #(= value %) (map first vocab))]
