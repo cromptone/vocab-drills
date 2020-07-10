@@ -37,6 +37,12 @@
    (boolean (and exercise-id exercise-option))))
 
 (rf/reg-sub
+ :show-unanswered-cloud?
+ :<- [:exercise-option]
+ (fn [exercise-option _]
+   (boolean (= exercise-option :word-cloud))))
+
+(rf/reg-sub
  :unanswered-vocab
  :<- [:vocab]
  (fn [vocab _]
