@@ -6,23 +6,18 @@
     (let [value (.. e -target -value)
           vocab @(rf/subscribe [:correct-answers])
           input-value-correct? (some #(= value %) (map first vocab))]
-      (.log js/console input-value-correct?)
-
       (when input-value-correct?
         (do
           (rf/dispatch [:move-correct-vocab value])
           (-> js/document (.getElementById "vocab-input") .-value (set! "")))))))
 
 (defn handler-prompt [e]
-  (.log js/console "prompt")
   (when (= (.. e -key) "Enter")
     (let [value (.. e -target -value)
           vocab @(rf/subscribe [:correct-answers])
           input-value-correct? (some #(= value %) (map first vocab))]
-
       (if input-value-correct?
         (rf/dispatch [:move-correct-vocab value])
-            ; (rf/dispatch [:move-incorrect-vocab])))
         (rf/dispatch [:move-incorrect-vocab]))
       (-> js/document (.getElementById "vocab-input") .-value (set! "")))))
 
