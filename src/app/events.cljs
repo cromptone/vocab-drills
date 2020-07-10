@@ -38,9 +38,9 @@
          dropped (get-dropped db)
          incorrect (get-incorrect db)]
      (-> db
-         (clear-answered)
-         (clear-dropped)
-         (clear-incorrect)
+         clear-answered
+         clear-dropped
+         clear-incorrect
          (update-in [:exercise :vocab :unanswered]
                     #(->> % (concat answered dropped incorrect) shuffle))))))
 
@@ -50,8 +50,8 @@
    (let [answered (get-answered db)
          incorrect (get-incorrect db)]
      (-> db
-         (clear-answered)
-         (clear-incorrect)
+         clear-answered
+         clear-incorrect
          (update-in [:exercise :vocab :dropped]
                     #(concat % answered))
          (update-in [:exercise :vocab :unanswered]
