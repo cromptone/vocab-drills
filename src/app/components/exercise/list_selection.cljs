@@ -2,10 +2,12 @@
   (:require [re-frame.core :as rf]))
 
 (defn vocab-lists []
-  (for [{:keys [title id]} @(rf/subscribe [:vocab-lists])]
-    [:button {:key title
-              :on-click #(rf/dispatch [:set-vocab-list id])}
-     title]))
+  (let [active-exercise-id @(rf/subscribe [:exercise-id])]
+    (for [{:keys [title id]} @(rf/subscribe [:vocab-lists])]
+      [:button {:key title
+                :on-click #(rf/dispatch [:set-vocab-list id])
+                :class (when (= active-exercise-id id) ["button__active"])}
+       title])))
 
 (def options-data
   [{:name "Word cloud" :option-kw :word-cloud}
