@@ -7,7 +7,6 @@
 
 (defn input-&-word-cloud []
   (let [option @(rf/subscribe [:exercise-option])]
-    (.log js/console (str option))
     [:<>
      (buttons/buttons)
      (when (= option :prompt)
