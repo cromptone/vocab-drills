@@ -2,14 +2,19 @@
   (:require [re-frame.core :as rf]))
 
 (defn get-unanswered [db] (get-in db [:exercise :vocab :unanswered]))
-(defn get-dropped    [db] (get-in db [:exercise :vocab :dropped]))
-(defn get-answered   [db] (get-in db [:exercise :vocab :answered]))
-(defn get-incorrect  [db] (get-in db [:exercise :vocab :incorrect]))
 
-(defn clear-unanswered [db] (assoc-in db [:exercise :vocab :unanswered] []))
-(defn clear-answered   [db] (assoc-in db [:exercise :vocab :answered] []))
-(defn clear-dropped    [db] (assoc-in db [:exercise :vocab :dropped] []))
-(defn clear-incorrect  [db] (assoc-in db [:exercise :vocab :incorrect] []))
+(defn clear-vocab [db vocab-kw]
+  (assoc-in db [:exercise :vocab vocab-kw] []))
+
+(defn move-vocab-from-to [db from-kw to-kw]
+  (let [from-vocab (get-in db [:exercise :vocab from-kw])]
+    (-> db
+        (assoc-in [:exercise :vocab from-kw] [])
+        (update-in [:exercise :vocab to-kw]
+                   #(concat % from-vocab)))))
+
+(def blank-vocab-list
+  {:answered [] :dropped [] :incorrect [] :unanswered []})
 
 (rf/reg-event-db
  :set-exercise-option
@@ -20,10 +25,8 @@
  :set-vocab-list
  (fn [db [_ id]]
    (-> db
-       (assoc-in [:exercise :exercise-id] id)
-       clear-answered
-       clear-dropped
-       clear-incorrect
+       (assoc :exercise {:exercise-id id
+                         :vocab blank-vocab-list})
        (assoc-in [:exercise :vocab :unanswered]  (->> db
                                                       :vocab-lists
                                                       (filter #(= (:id %) id))
@@ -34,28 +37,19 @@
 (rf/reg-event-db
  :reset
  (fn [db [_ _]]
-   (let [answered (get-answered db)
-         dropped (get-dropped db)
-         incorrect (get-incorrect db)]
-     (-> db
-         clear-answered
-         clear-dropped
-         clear-incorrect
-         (update-in [:exercise :vocab :unanswered]
-                    #(->> % (concat answered dropped incorrect) shuffle))))))
+   (-> db
+       (move-vocab-from-to :answered :unanswered)
+       (move-vocab-from-to :dropped :unanswered)
+       (move-vocab-from-to :incorrect :unanswered)
+       (update-in [:exercise :vocab :unanswered] shuffle))))
 
 (rf/reg-event-db
  :redo-with-missed
  (fn [db [_ _]]
-   (let [answered (get-answered db)
-         incorrect (get-incorrect db)]
-     (-> db
-         clear-answered
-         clear-incorrect
-         (update-in [:exercise :vocab :dropped]
-                    #(concat % answered))
-         (update-in [:exercise :vocab :unanswered]
-                    #(->> % (concat incorrect) shuffle))))))
+   (-> db
+       (move-vocab-from-to :answered :dropped)
+       (move-vocab-from-to :incorrect :unanswered)
+       (update-in [:exercise :vocab :unanswered] shuffle))))
 
 (rf/reg-event-db
  :move-correct-vocab
@@ -72,8 +66,8 @@
  (fn [db [_ _]]
    (let [[incorrect unanswered] (split-at 1 (get-unanswered db))]
      (-> db
-         (update-in [:exercise :vocab :incorrect] #(concat % incorrect))
-         (assoc-in [:exercise :vocab :unanswered] unanswered)))))
+         (assoc-in [:exercise :vocab :unanswered] unanswered)
+         (update-in [:exercise :vocab :incorrect] #(concat % incorrect))))))
 
 (rf/reg-event-db
  :remove-20-words
@@ -82,6 +76,11 @@
      (-> db
          (assoc-in [:exercise :vocab :unanswered] unanswered)
          (update-in [:exercise :vocab :dropped] (partial concat dropped))))))
+
+(rf/reg-event-db
+ :show-answers
+ (fn [db [_ _]]
+   (move-vocab-from-to db :unanswered :incorrect)))
 
 (rf/reg-event-db
  :clear-exercise
