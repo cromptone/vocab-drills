@@ -10,9 +10,9 @@
    (buttons/buttons)
    [:p @(rf/subscribe [:prompt-text])]
    (input/input)
-   (cloud/unanswered-cloud)
-   (cloud/answered-cloud)
-   (cloud/incorrect-cloud)])
+   (cloud/unanswered)
+   (cloud/answered)
+   (cloud/incorrect)])
 
 (defn exercise []
   (if @(rf/subscribe [:active-exercise?])
