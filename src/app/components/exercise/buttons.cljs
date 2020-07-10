@@ -8,7 +8,8 @@
     :disabled (->> @(rf/subscribe [:unanswered-vocab])
                    count
                    (>= 20))}
-   {:text "Reset exercise" :dispatch-kw :reset}])
+   {:text "Reset exercise" :dispatch-kw :reset}
+   {:text "Redo with missed" :dispatch-kw :redo-with-missed}])
 
 (defn buttons []
   (for [{:keys [dispatch-kw text disabled]} (button-data)]

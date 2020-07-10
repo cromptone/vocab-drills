@@ -3,16 +3,16 @@
             [app.components.exercise.list-selection :as list-selection]
             [app.components.exercise.buttons :as buttons]
             [app.components.exercise.input :as input]
-            [app.components.exercise.clouds :as cloud]))
+            [app.components.exercise.clouds :as clouds]))
 
 (defn input-&-word-cloud []
   [:<>
    (buttons/buttons)
    [:p @(rf/subscribe [:prompt-text])]
    (input/input)
-   (cloud/unanswered)
-   (cloud/answered)
-   (cloud/incorrect)])
+   (clouds/unanswered)
+   (clouds/answered)
+   (clouds/incorrect)])
 
 (defn exercise []
   (if @(rf/subscribe [:active-exercise?])
