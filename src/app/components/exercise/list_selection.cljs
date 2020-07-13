@@ -23,8 +23,10 @@
         name])]))
 
 (defn confirm-button []
-  [:button {:on-click #(rf/dispatch [:set-exercise-in-progress true])}
-   "Let's go!"])
+  (when @(rf/subscribe [:valid-exercise-options?])
+    [:button {:on-click #(rf/dispatch [:start-exercise])
+              :auto-focus true}
+     "Let's go!"]))
 
 (defn lists []
   [:<>

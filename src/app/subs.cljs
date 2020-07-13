@@ -36,7 +36,7 @@
    (:exercise-option exercise)))
 
 (rf/reg-sub
- :active-exercise?
+ :valid-exercise-options?
  :<- [:exercise-id]
  :<- [:exercise-option]
  (fn [[exercise-option exercise-id] _]
