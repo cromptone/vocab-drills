@@ -12,6 +12,4 @@
    name])
 
 (defn menu []
-  [:nav "German vocabulary drills"
-   (for [item menu-items]
-     (menu-item item))])
+  [:nav (for [item menu-items] (menu-item item))])

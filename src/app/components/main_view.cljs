@@ -7,8 +7,10 @@
 (defn app []
   (let [page-kw @(rf/subscribe [:page])]
     [:<>
-     (menu)
-     [:h1 "Vocabulary Drills"]
-     (case page-kw
-       :about (about)
-       (exercise))]))
+     [:header "German vocabulary drills"
+      (menu)]
+     [:main {:style {:margin 100}}
+      (case page-kw
+        :about (about)
+        (exercise))]
+     [:footer]]))

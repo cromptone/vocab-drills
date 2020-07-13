@@ -41,13 +41,30 @@
               :font-size "20px"
               :height "40px"
               :transition "background-color 2s"}]
+    [:header   {:color "#121224"
+                :background-color "#888888"
+                :font-size 15
+                :font-family "sans-serif"
+                :display "flex"
+                :height "30px"
+                :margin "0 auto 0 auto"
+                :position "fixed"
+                :left 0
+                :top 0
+                :width "100%"
+                :box-shadow "0px 3px 9px #000000"
+                :bottom-margin "80px"
+                :padding "5px 10px"}]
+    [:main {:margin 100}]
     [:.cloud-word {:color dark-back
                    :display "inline-block"
                    :padding "5px"
                    :margin "5px"
-                   :border-radius "5px"}]
+                   :border-radius "5px"}
+     [:.cloud-word__answered {:background-color "yellow"}]
+     [:.cloud-word__incorrect {:background-color "orange"}]
+     [:.cloud-word__unanswered {:background-color "pink"}]]
     [:.button__active ^:prefix {:animation [[shine1 "1s"]]
                                 :background-color "pink"}]
-    [:.cloud-word__answered {:background-color "yellow"}]
-    [:.cloud-word__incorrect {:background-color "orange"}]
-    [:.cloud-word__unanswered {:background-color "pink"}]]))
+
+    [:footer {:height 100 :clear "both"}]]))
