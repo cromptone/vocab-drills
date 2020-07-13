@@ -55,16 +55,17 @@
                 :box-shadow "0px 3px 9px #000000"
                 :bottom-margin "80px"
                 :padding "5px 10px"}]
-    [:main {:margin 100}]
-    [:.cloud-word {:color dark-back
-                   :display "inline-block"
-                   :padding "5px"
-                   :margin "5px"
-                   :border-radius "5px"}
-     [:.cloud-word__answered {:background-color "yellow"}]
-     [:.cloud-word__incorrect {:background-color "orange"}]
-     [:.cloud-word__unanswered {:background-color "pink"}]]
-    [:.button__active ^:prefix {:animation [[shine1 "1s"]]
-                                :background-color "pink"}]
+    [:main {:margin 100}
+     [:.cloud-word {:background-color "#a2a2a2"
+                    :color "#121224"
+                    :margin "3px"
+                    :float "left"
+                    :border-radius "5px"
+                    :padding "5px"}
+      [:&.cloud-word__answered {:opacity ".6"}]
+      [:&.cloud-word__incorrect {:background-color "#ffa2a2"}]
+      [:&.cloud-word__unanswered {:opacity ".4"}]]
+     [:.button__active ^:prefix {:animation [[shine1 "1s" :infinite :alternate]]
+                                 :background-color "pink"}]]
 
     [:footer {:height 100 :clear "both"}]]))
