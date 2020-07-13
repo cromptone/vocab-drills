@@ -14,11 +14,13 @@
    {:name "Single-word prompt" :option-kw :prompt}])
 
 (defn exercise-options []
-  [:div
-   (for [{:keys [name option-kw]} options-data]
-     [:button {:key name
-               :on-click #(rf/dispatch [:set-exercise-option option-kw])}
-      name])])
+  (let [active-exercise-option @(rf/subscribe [:exercise-option])]
+    [:div
+     (for [{:keys [name option-kw]} options-data]
+       [:button {:key name
+                 :on-click #(rf/dispatch [:set-exercise-option option-kw])
+                 :class (when (= active-exercise-option option-kw) ["button__active"])}
+        name])]))
 
 (defn lists []
   [:<>

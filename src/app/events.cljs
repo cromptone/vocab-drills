@@ -25,8 +25,8 @@
  :set-vocab-list
  (fn [db [_ id]]
    (-> db
-       (assoc :exercise {:exercise-id id
-                         :vocab blank-vocab-list})
+       (assoc-in [:exercise :exercise-id] id)
+       (assoc-in [:exercise :vocab] blank-vocab-list)
        (assoc-in [:exercise :vocab :unanswered]  (->> db
                                                       :vocab-lists
                                                       (filter #(= (:id %) id))
