@@ -18,6 +18,12 @@
    (:vocab exercise)))
 
 (rf/reg-sub
+ :exercise-in-progress?
+ :<- [:exercise]
+ (fn [exercise _]
+   (:exercise-in-progress? exercise)))
+
+(rf/reg-sub
  :exercise-id
  :<- [:exercise]
  (fn [exercise _]

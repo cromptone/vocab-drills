@@ -15,6 +15,6 @@
    (clouds/incorrect)])
 
 (defn exercise []
-  (if @(rf/subscribe [:active-exercise?])
+  (if @(rf/subscribe [:exercise-in-progress?])
     (input-&-word-cloud)
     (list-selection/lists)))

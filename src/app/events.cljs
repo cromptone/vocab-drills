@@ -35,6 +35,11 @@
                                                       shuffle)))))
 
 (rf/reg-event-db
+ :set-exercise-in-progress
+ (fn [db [_ exercise-in-progress?]]
+   (assoc-in db [:exercise :exercise-in-progress?] exercise-in-progress?)))
+
+(rf/reg-event-db
  :reset
  (fn [db [_ _]]
    (-> db
