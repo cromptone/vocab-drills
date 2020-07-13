@@ -36,7 +36,7 @@
 
 (rf/reg-event-db
  :start-exercise
- (fn [db [_ exercise-in-progress?]]
+ (fn [db [_ _]]
    (if (and (get-in db [:exercise :exercise-id])
             (get-in db [:exercise :exercise-option]))
      (assoc-in db [:exercise :exercise-in-progress?] true))))
