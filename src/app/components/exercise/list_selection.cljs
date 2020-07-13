@@ -22,7 +22,12 @@
                  :class (when (= active-exercise-option option-kw) ["button__active"])}
         name])]))
 
+(defn confirm-button []
+  ; (when @(rf/subscribe [:active-exercise?])
+  [:button "Let's go!"])
+
 (defn lists []
   [:<>
    (vocab-lists)
-   (exercise-options)])
+   (exercise-options)
+   (confirm-button)])
