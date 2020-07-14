@@ -55,7 +55,17 @@
                 :box-shadow "0px 3px 9px #000000"
                 :bottom-margin "80px"
                 :padding "5px 10px"}]
-    [:main {:margin 100}
+    [:main {:margin-top "100px"}
+     [:input {:width "70%"
+              :height "55px"
+              :padding "20px"
+              :border "none"
+              :border-radius "9px"
+              :display "block"
+              :margin "10px auto 20px auto"
+              :background-color "#a2a2a2"
+              :color "#121224"
+              :font-size "30px"}]
      [:.cloud-word {:background-color "#a2a2a2"
                     :color "#121224"
                     :margin "3px"
@@ -68,4 +78,4 @@
      [:.button__active ^:prefix {:animation [[shine1 "1s" :infinite :alternate]]
                                  :background-color "pink"}]]
 
-    [:footer {:height 100 :clear "both"}]]))
+    [:footer {:height "100px" :clear "both"}]]))

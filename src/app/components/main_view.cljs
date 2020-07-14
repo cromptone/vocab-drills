@@ -9,7 +9,7 @@
     [:<>
      [:header "German vocabulary drills"
       (menu)]
-     [:main {:style {:margin 100}}
+     [:main
       (case page-kw
         :about (about)
         (exercise))]
