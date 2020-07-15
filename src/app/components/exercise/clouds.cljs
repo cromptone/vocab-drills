@@ -2,7 +2,7 @@
   (:require [re-frame.core :as rf]))
 
 (defn- cloud-word
-  ([class text]         (cloud-word [ger eng class text]))
+  ([class text]         (cloud-word nil nil class text))
   ([ger eng class text] [:div.cloud-word {:class class
                                           :key (str ger "-" eng)}
                          text]))
