@@ -1,26 +1,27 @@
 (ns app.components.exercise.clouds
   (:require [re-frame.core :as rf]))
 
-(defn gen-cloud-key-map [ger eng]
-  {:key (str ger "-" eng)})
+(defn- cloud-word
+  ([class text]         (cloud-word [ger eng class text]))
+  ([ger eng class text] [:div.cloud-word {:class class
+                                          :key (str ger "-" eng)}
+                         text]))
 
 (defn example []
   (when (-> @(rf/subscribe [:answered-vocab]) count (< 3))
-    [:div.cloud-word.cloud-word__example
-     (str "Enter the singular and plural, separated by a comma → das Beispiel, die Beispiele")]))
+    (cloud-word "cloud-word__example" (str "Enter the singular and plural,"
+                                           " separated by a comma → das "
+                                           "Beispiel, die Beispiele"))))
 
 (defn unanswered []
   (when @(rf/subscribe [:show-unanswered-cloud?])
     (for [[ger eng] @(rf/subscribe [:unanswered-vocab])]
-      [:div.cloud-word.cloud-word__unanswered (gen-cloud-key-map ger eng)
-       (str eng)])))
+      (cloud-word ger eng "cloud-word__unanswered" (str eng)))))
 
 (defn answered []
   (for [[ger eng] @(rf/subscribe [:answered-vocab])]
-    [:div.cloud-word.cloud-word__answered (gen-cloud-key-map ger eng)
-     (str ger " → " eng)]))
+    (cloud-word ger eng "cloud-word__answered" (str ger " → " eng))))
 
 (defn incorrect []
   (for [[ger eng] @(rf/subscribe [:incorrect-vocab])]
-    [:div.cloud-word.cloud-word__incorrect (gen-cloud-key-map ger eng)
-     (str ger " → " eng)]))
+    (cloud-word ger eng "cloud-word__incorrect" (str ger " → " eng))))
