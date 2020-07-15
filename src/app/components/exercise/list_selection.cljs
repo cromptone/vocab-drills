@@ -24,8 +24,8 @@
 
 (defn confirm-button []
   (when @(rf/subscribe [:valid-exercise-options?])
-    [:button {:on-click #(rf/dispatch [:start-exercise])
-              :auto-focus true}
+    [:button.right {:on-click #(rf/dispatch [:start-exercise])
+                    :auto-focus true}
      "Let's go!"]))
 
 (defn lists []
