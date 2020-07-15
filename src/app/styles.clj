@@ -6,11 +6,6 @@
 (def accent-gray "#a2a2a2")
 (def dark-back "#0f1418")
 
-(defkeyframes shine
-              ["0%" {:opacity 1}]
-              ["8%" {:opacity 0.6}]
-              ["100%" {:opacity 1}])
-
 (defkeyframes shine1
               ["0%" {:transform "rotate(0deg)"}]
               ["15%" {:transform "rotate(1deg)"}]
@@ -26,13 +21,10 @@
   (css
    {:output-to "public/css/styles.css"
     :pretty-print? false}
-   [shine]
    [shine1]
    [:body {:background-color dark-back
            :color "salmon"
            :font-family "Roboto, sans-serif"};
-    [:h1 ^:prefix {:animation [[shine "2s" :infinite :alternate]]}]
-
     [:button {:border-radius "9px"
               :border-style "none"
               :margin "0px 0px 10px 10px"
