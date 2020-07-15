@@ -23,8 +23,8 @@
 
 (defn input []
   [:input {:id "vocab-input"
-           :on-key-up (case @(rf/subscribe [:exercise-option])
-                        :word-cloud handler-word-cloud
-                        :prompt handler-prompt
-                        handler-word-cloud)
+           :on-key-down (case @(rf/subscribe [:exercise-option])
+                          :word-cloud handler-word-cloud
+                          :prompt handler-prompt
+                          handler-word-cloud)
            :auto-focus true}])
