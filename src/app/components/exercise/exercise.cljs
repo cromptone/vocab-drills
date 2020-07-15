@@ -10,6 +10,7 @@
    (buttons/buttons)
    [:p @(rf/subscribe [:prompt-text])]
    (input/input)
+   (clouds/example)
    (clouds/unanswered)
    (clouds/answered)
    (clouds/incorrect)])

@@ -64,6 +64,8 @@
                     :float "left"
                     :border-radius "5px"
                     :padding "5px"}
+      [:&.cloud-word__example {:opacity ".6"
+                               :background-color "yellow"}]
       [:&.cloud-word__answered {:opacity ".6"}]
       [:&.cloud-word__incorrect {:background-color "#ffa2a2"}]
       [:&.cloud-word__unanswered {:opacity ".4"}]]

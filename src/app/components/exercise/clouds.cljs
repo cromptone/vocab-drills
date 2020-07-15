@@ -1,6 +1,11 @@
 (ns app.components.exercise.clouds
   (:require [re-frame.core :as rf]))
 
+(defn example []
+  (when (-> @(rf/subscribe [:answered-vocab]) count (< 3))
+    [:div.cloud-word.cloud-word__example
+     (str "Enter the singular and plural, separated by a comma → das Beispiel, die Beispiele")]))
+
 (defn unanswered []
   (when @(rf/subscribe [:show-unanswered-cloud?])
     (for [[ger eng] @(rf/subscribe [:unanswered-vocab])]
