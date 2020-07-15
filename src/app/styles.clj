@@ -6,7 +6,7 @@
 (def accent-gray "#a2a2a2")
 (def dark-back "#0f1418")
 
-(defkeyframes shine1
+(defkeyframes wiggle
               ["0%" {:transform "rotate(0deg)"}]
               ["15%" {:transform "rotate(1deg)"}]
               ["20%" {:transform "rotate(-1deg)"}]
@@ -21,7 +21,7 @@
   (css
    {:output-to "public/css/styles.css"
     :pretty-print? false}
-   [shine1]
+   [wiggle]
    [:body {:background-color dark-back
            :color "salmon"
            :font-family "Roboto, sans-serif"};
@@ -31,8 +31,8 @@
               :background-color "salmon"
               :color "rgb(18, 18, 36)"
               :font-size "20px"
-              :height "40px"
-              :transition "background-color 2s"}]
+              :height "40px"}
+     [:&.right {:float "right"}]]
     [:header   {:color "#121224"
                 :background-color "#888888"
                 :font-size 15
@@ -69,7 +69,7 @@
       [:&.cloud-word__answered {:opacity ".6"}]
       [:&.cloud-word__incorrect {:background-color "#ffa2a2"}]
       [:&.cloud-word__unanswered {:opacity ".4"}]]
-     [:.button__active ^:prefix {:animation [[shine1 "1s" :infinite :alternate]]
+     [:.button__active ^:prefix {:animation [[wiggle "1s"]]
                                  :background-color "pink"}]]
 
     [:footer {:height "100px" :clear "both"}]]))
