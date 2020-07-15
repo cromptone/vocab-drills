@@ -30,6 +30,8 @@
 
 (defn lists []
   [:<>
+   [:h2 "Choose a vocabulary list:"]
    (vocab-lists)
+   [:h2 "Choose exercise type:"]
    (exercise-options)
    (confirm-button)])
