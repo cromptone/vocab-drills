@@ -4,9 +4,10 @@
 (defn vocab-lists []
   (let [active-exercise-id @(rf/subscribe [:exercise-id])]
     (for [{:keys [title id]} @(rf/subscribe [:vocab-lists])]
-      [:button {:key title
-                :on-click #(rf/dispatch [:set-vocab-list id])
-                :class (when (= active-exercise-id id) ["button__active"])}
+      [:button.big-btn {:key title
+                        :on-click #(rf/dispatch [:set-vocab-list id])
+                        :class (when (= active-exercise-id id)
+                                 ["button__active"])}
        title])))
 
 (def options-data
@@ -17,15 +18,17 @@
   (let [active-exercise-option @(rf/subscribe [:exercise-option])]
     [:div
      (for [{:keys [name option-kw]} options-data]
-       [:button {:key name
-                 :on-click #(rf/dispatch [:set-exercise-option option-kw])
-                 :class (when (= active-exercise-option option-kw) ["button__active"])}
+       [:button.big-btn {:key name
+                         :on-click #(rf/dispatch
+                                     [:set-exercise-option option-kw])
+                         :class (when (= active-exercise-option option-kw)
+                                  ["button__active"])}
         name])]))
 
 (defn confirm-button []
   (when @(rf/subscribe [:valid-exercise-options?])
-    [:button.right {:on-click #(rf/dispatch [:start-exercise])
-                    :auto-focus true}
+    [:button.big-btn.right {:on-click #(rf/dispatch [:start-exercise])
+                            :auto-focus true}
      "Let's go!"]))
 
 (defn lists []

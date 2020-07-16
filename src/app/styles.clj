@@ -24,14 +24,21 @@
    [wiggle]
    [:body {:background-color dark-back
            :color "salmon"
-           :font-family "Roboto, sans-serif"};
+           :font-family "Roboto, sans-serif"}
+    [:.exercise-btns {:margin-right "12.5%"}
+     :float "right"]
     [:button {:border-radius "9px"
-              :border-style "none"
-              :margin "0px 0px 10px 10px"
-              :background-color "salmon"
-              :color "rgb(18, 18, 36)"
-              :font-size "20px"
-              :height "40px"}
+              :border-style "none"}
+     [:&.big-btn {:margin "0px 0px 10px 10px"
+                  :background-color "salmon"
+                  :color "rgb(18, 18, 36)"
+                  :font-size "20px"
+                  :height "40px"}]
+     [:&.small-btn {:margin "0px 0px 10px 10px"
+                    :background-color "rgb(162, 162, 162)"
+                    :color "rgb(18, 18, 36)"
+                    :font-size "12px"}]
+
      [:&.right {:float "right"}]]
     [:header   {:color "#121224"
                 :background-color "#888888"
@@ -62,7 +69,6 @@
                      :display "flex"
                      :flex-direction "column"
                      :margin "auto"}]
-
      [:.cloud-word {:background-color "#a2a2a2"
                     :color "#121224"
                     :margin "3px"
