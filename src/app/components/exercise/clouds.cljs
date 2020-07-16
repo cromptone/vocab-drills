@@ -32,7 +32,7 @@
 
 (defn incorrect []
   [:div.word-cloud.incorrect-cloud
-   (for [[ger eng] @(rf/subscribe [:incorrect-vocab])]
+   (for [[ger eng] (reverse @(rf/subscribe [:incorrect-vocab]))]
      (cloud-word {:key (gen-key ger eng)
                   :class "incorrect"
                   :text (str ger " → " eng)}))])
