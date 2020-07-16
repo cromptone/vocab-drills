@@ -20,7 +20,7 @@
   (io/make-parents "public/css/styles.css")
   (css
    {:output-to "public/css/styles.css"
-    :pretty-print? false}
+    :pretty-print? true}
    [wiggle]
    [:body {:background-color dark-back
            :color "salmon"
@@ -45,7 +45,7 @@
                 :top 0
                 :width "100%"
                 :box-shadow "0px 3px 9px #000000"
-                :bottom-margin "80px"
+                :margin-margin "80px"
                 :padding "5px 10px"}]
     [:main {:margin-top "100px"}
      [:input {:width "70%"
@@ -58,17 +58,27 @@
               :background-color "#a2a2a2"
               :color "#121224"
               :font-size "30px"}]
-     [:.cloud-word {:background-color "#a2a2a2"
-                    :color "#121224"
-                    :margin "3px"
-                    :float "left"
-                    :border-radius "5px"
-                    :padding "5px"}
-      [:&.cloud-word__example {:opacity ".6"
-                               :background-color "yellow"}]
-      [:&.cloud-word__answered {:opacity ".6"}]
-      [:&.cloud-word__incorrect {:background-color "#ffa2a2"}]
-      [:&.cloud-word__unanswered {:opacity ".4"}]]
+     [:.word-clouds {:width "100%"
+                     :display "flex"}]
+
+     [:.example {:margin "auto"
+                 :width "100%"
+                 :clear "both"}]
+
+     [:.word-cloud
+      [:&.answered-cloud {:margin-right "5%"}]
+      [:&.unanswered-cloud {:width "35%"}]
+      [:.cloud-word {:background-color "#a2a2a2"
+                     :color "#121224"
+                     :margin "3px"
+                     :float "left"
+                     :border-radius "5px"
+                     :padding "5px"}
+       [:&.example {:opacity ".6"
+                    :background-color "yellow"}]
+       [:&.answered {:opacity ".6"}]
+       [:&.incorrect {:background-color "#ffa2a2"}]
+       [:&.unanswered {:opacity ".4"}]]]
      [:.button__active ^:prefix {:animation [[wiggle "1s"]]
                                  :background-color "pink"}]]
 
