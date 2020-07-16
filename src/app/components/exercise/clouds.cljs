@@ -1,27 +1,38 @@
 (ns app.components.exercise.clouds
   (:require [re-frame.core :as rf]))
 
-(defn- cloud-word
-  ([class text]         (cloud-word nil nil class text))
-  ([ger eng class text] [:div.cloud-word {:class class
-                                          :key (str ger "-" eng)}
-                         text]))
+(defn- gen-key [ger eng] (str ger "-" eng))
+
+(defn- cloud-word [{:keys [key class text]}]
+  [:p.cloud-word {:class class :key key} text])
 
 (defn example []
   (when (-> @(rf/subscribe [:answered-vocab]) count (< 3))
-    (cloud-word "cloud-word__example" (str "Enter the singular and plural,"
-                                           " separated by a comma → das "
-                                           "Beispiel, die Beispiele"))))
+    [:div.example
+     (let [text (str "Enter the singular and plural,  separated by a comma → das "
+                     "Beispiel, die Beispiele")]
+       (cloud-word {:key text
+                    :class "example"
+                    :text text}))]))
 
 (defn unanswered []
   (when @(rf/subscribe [:show-unanswered-cloud?])
-    (for [[ger eng] @(rf/subscribe [:unanswered-vocab])]
-      (cloud-word ger eng "cloud-word__unanswered" (str eng)))))
+    [:div.word-cloud.unanswered-cloud
+     (for [[ger eng] @(rf/subscribe [:unanswered-vocab])]
+       (cloud-word {:key (gen-key ger eng)
+                    :class "unanswered"
+                    :text (str eng)}))]))
 
 (defn answered []
-  (for [[ger eng] @(rf/subscribe [:answered-vocab])]
-    (cloud-word ger eng "cloud-word__answered" (str ger " → " eng))))
+  [:div.word-cloud.answered-cloud
+   (for [[ger eng] @(rf/subscribe [:answered-vocab])]
+     (cloud-word {:key (gen-key ger eng)
+                  :class "answered"
+                  :text (str ger " → " eng)}))])
 
 (defn incorrect []
-  (for [[ger eng] @(rf/subscribe [:incorrect-vocab])]
-    (cloud-word ger eng "cloud-word__incorrect" (str ger " → " eng))))
+  [:div.word-cloud.incorrect-cloud
+   (for [[ger eng] @(rf/subscribe [:incorrect-vocab])]
+     (cloud-word {:key (gen-key ger eng)
+                  :class "incorrect"
+                  :text (str ger " → " eng)}))])
