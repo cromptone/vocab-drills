@@ -25,8 +25,8 @@
    [:body {:background-color dark-back
            :color "salmon"
            :font-family "Roboto, sans-serif"}
-    [:.exercise-btns {:margin-right "12.5%"}
-     :float "right"]
+    [:.exercise-btns {:margin-right "15%"
+                      :float "right"}]
     [:button {:border-radius "9px"
               :border-style "none"}
      [:&.big-btn {:margin "0px 0px 10px 10px"
