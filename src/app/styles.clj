@@ -58,27 +58,21 @@
               :background-color "#a2a2a2"
               :color "#121224"
               :font-size "30px"}]
-     [:.word-clouds {:width "100%"
-                     :display "flex"}]
+     [:.word-clouds {:width "calc(20px + 70%)"
+                     :display "flex"
+                     :flex-direction "column"
+                     :margin "auto"}]
 
-     [:.example {:margin "auto"
-                 :width "100%"
-                 :clear "both"}]
-
-     [:.word-cloud
-      [:&.answered-cloud {:margin-right "5%"}]
-      [:&.unanswered-cloud {:width "35%"}]
-      [:.cloud-word {:background-color "#a2a2a2"
-                     :color "#121224"
-                     :margin "3px"
-                     :float "left"
-                     :border-radius "5px"
-                     :padding "5px"}
-       [:&.example {:opacity ".6"
-                    :background-color "yellow"}]
-       [:&.answered {:opacity ".6"}]
-       [:&.incorrect {:background-color "#ffa2a2"}]
-       [:&.unanswered {:opacity ".4"}]]]
+     [:.cloud-word {:background-color "#a2a2a2"
+                    :color "#121224"
+                    :margin "3px"
+                    :float "left"
+                    :border-radius "5px"
+                    :padding "5px"
+                    :opacity ".8"}
+      [:&.example {:background-color "yellow"}]
+      [:&.incorrect {:backgrund-color "#ffa2a2"}]
+      [:&.answered {:background-color "aliceblue"}]]
      [:.button__active ^:prefix {:animation [[wiggle "1s"]]
                                  :background-color "pink"}]]
 

@@ -10,7 +10,7 @@
    (buttons/buttons)
    [:p @(rf/subscribe [:prompt-text])]
    (input/input)
-   [:div.word-clouds {:style {:width "100%" :display "flex"}}
+   [:div.word-clouds
     (clouds/example)
     (clouds/unanswered)
     (clouds/incorrect)
