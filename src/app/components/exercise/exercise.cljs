@@ -10,10 +10,11 @@
    (buttons/buttons)
    [:p @(rf/subscribe [:prompt-text])]
    (input/input)
-   (clouds/example)
-   (clouds/unanswered)
-   (clouds/answered)
-   (clouds/incorrect)])
+   [:div.word-clouds {:style {:width "100%" :display "flex"}}
+    (clouds/example)
+    (clouds/unanswered)
+    (clouds/incorrect)
+    (clouds/answered)]])
 
 (defn exercise []
   (if @(rf/subscribe [:exercise-in-progress?])
