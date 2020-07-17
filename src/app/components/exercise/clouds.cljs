@@ -28,11 +28,11 @@
    (for [[ger eng] @(rf/subscribe [:answered-vocab])]
      (cloud-word {:key (gen-key ger eng)
                   :class "answered"
-                  :text (str ger " → " eng)}))])
+                  :text (str eng " → " ger)}))])
 
 (defn incorrect []
   [:div.word-cloud.incorrect-cloud
    (for [[ger eng] (reverse @(rf/subscribe [:incorrect-vocab]))]
      (cloud-word {:key (gen-key ger eng)
                   :class "incorrect"
-                  :text (str ger " → " eng)}))])
+                  :text (str eng " → " ger)}))])
