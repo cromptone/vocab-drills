@@ -21,7 +21,7 @@
           input-value-correct? (= value correct-answer)]
       (if input-value-correct?
         (rf/dispatch [:move-correct-vocab value])
-        (rf/dispatch [:move-incorrect-vocab]))
+        (rf/dispatch [:move-incorrect-prompt-vocab]))
       (clear-input))))
 
 (defn input []

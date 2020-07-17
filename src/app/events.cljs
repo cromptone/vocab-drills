@@ -69,7 +69,7 @@
          (update-in [:exercise :vocab :answered] #(concat % answer))))))
 
 (rf/reg-event-db
- :move-incorrect-vocab
+ :move-incorrect-prompt-vocab
  (fn [db [_ _]]
    (let [[incorrect unanswered] (split-at 1 (get-unanswered db))]
      (-> db
