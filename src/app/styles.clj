@@ -28,7 +28,8 @@
            :color "salmon"
            :font-family "Roboto, sans-serif"}
     [:.about {:margin main-margin
-              :color gray}]
+              :color gray}
+     [:p {:max-width "600px"}]]
     [:header {:line-height "40px"
               :height "40px"
               :width "100%"
