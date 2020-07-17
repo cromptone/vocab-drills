@@ -25,10 +25,17 @@
    [:body {:background-color dark-back
            :color "salmon"
            :font-family "Roboto, sans-serif"}
+    [:header {:text-align "center"
+              :display "flex"
+              :align-items "center"
+              :height "40px"
+              :width "100%"}]
+    [:.lists {:margin "50px"}]
     [:.exercise-btns {:margin-right "15%"
                       :float "right"}]
     [:.prompt {:margin "auto"
                :width "70%"
+               :color "#a2a2a2"
                :clear "both"}]
     [:button {:border-radius "9px"
               :border-style "none"}

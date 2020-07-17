@@ -12,4 +12,5 @@
    name])
 
 (defn menu []
-  [:nav (for [item menu-items] (menu-item item))])
+  [:nav
+   (for [item menu-items] (menu-item item))])

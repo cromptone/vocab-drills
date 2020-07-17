@@ -32,7 +32,8 @@
      "Let's go!"]))
 
 (defn lists []
-  [:<>
+  [:div.lists
+   [:h1 "German vocabulary exercises"]
    [:h2 "Choose a vocabulary list:"]
    (vocab-lists)
    [:h2 "Choose exercise type:"]
