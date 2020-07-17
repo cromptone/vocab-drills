@@ -3,8 +3,9 @@
             [garden.core :refer [css]]
             [garden.def :refer [defkeyframes]]))
 
-(def accent-gray "#a2a2a2")
+(def gray "#a2a2a2")
 (def dark-back "#0f1418")
+(def dark-blue "#121224")
 
 (defkeyframes wiggle
               ["0%" {:transform "rotate(0deg)"}]
@@ -28,7 +29,7 @@
     [:header {:line-height "40px"
               :height "40px"
               :width "100%"
-              :color "#121224"
+              :color dark-blue
               :background-color "#888888"
               :font-size "20px"
               :position "fixed"
@@ -41,14 +42,17 @@
       [:a {:float "right"
            :margin-right "20px"
            :text-decoration "none"
-           :color "#121224"
-           :display "inline"}]]]
+           :color dark-blue
+           :display "inline"
+           :height "30px"}
+       [:&:hover {:color "salmon"}]
+       [:&.active {:border-bottom-style "solid"}]]]]
     [:.lists {:margin "50px"}]
     [:.exercise-btns {:margin-right "15%"
                       :float "right"}]
     [:.prompt {:margin "auto"
                :width "70%"
-               :color "#a2a2a2"
+               :color gray
                :clear "both"}]
     [:button {:border-radius "9px"
               :border-style "none"}
@@ -71,15 +75,15 @@
               :border-radius "9px"
               :display "block"
               :margin "10px auto 20px auto"
-              :background-color "#a2a2a2"
-              :color "#121224"
+              :background-color gray
+              :color dark-blue
               :font-size "30px"}]
      [:.word-clouds {:width "calc(20px + 70%)"
                      :display "flex"
                      :flex-direction "column"
                      :margin "auto"}]
-     [:.cloud-word {:background-color "#a2a2a2"
-                    :color "#121224"
+     [:.cloud-word {:background-color gray
+                    :color dark-blue
                     :margin "3px"
                     :float "left"
                     :border-radius "5px"
