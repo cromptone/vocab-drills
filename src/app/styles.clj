@@ -37,6 +37,7 @@
              [:&.right {:float "right"}]])
 
 (def footer [:footer {:height "20px"
+                      :width "100%"
                       :position "fixed"
                       :left 0
                       :bottom 0
