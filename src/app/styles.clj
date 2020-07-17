@@ -26,6 +26,8 @@
    [:body {:background-color dark-back
            :color "salmon"
            :font-family "Roboto, sans-serif"}
+    [:.about {:margin "30px"
+              :color gray}]
     [:header {:line-height "40px"
               :height "40px"
               :width "100%"
@@ -56,6 +58,7 @@
                :clear "both"}]
     [:button {:border-radius "9px"
               :border-style "none"}
+     [:&:hover {:cursor "pointer"}]
      [:&.big-btn {:margin "0px 0px 10px 10px"
                   :background-color "salmon"
                   :color "rgb(18, 18, 36)"
