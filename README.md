@@ -37,8 +37,11 @@ _Ideas for improvement_
 
 _How to add more vocabulary_
 
-* Create a `.txt` file with your vocabulary in it.
-* * The first line in the file should be the name (as displayed on the buttons, i.e. "Bike repair" for a vocabulary list about bike repair. The rest of the file has one vocabulary pair per line, with the English first and then the German, separated by a tab. It happens that, if you copy-paste two columns from an Excel spreadsheet, it will be in this tab-delimited format. Upload this file into the `/src/vocab` directory with all the rest. Create a pull request.
+* Create a `.txt` file with your vocabulary in it within the `/src/vocab` directory.
+ * The first line in the file should be the name (as displayed on the buttons, i.e. "Bike repair" for a vocabulary list about bike repair.
+ * The rest of the file has one vocabulary pair per line, with the English first and then the German, separated by a tab. It happens that, if you copy-paste two columns from an Excel spreadsheet, it will be in this tab-delimited format.
+ * When in doubt, check out the format of an existing `.txt` file (e.g. https://github.com/cromptone/vocab-drills/blob/master/src/vocab/germanAnimals.txt)
+ * Create a pull request.
 * Conversely, if you have a good vocabulary list in a spreadsheet format that you'd like to see uploaded, then reach out to me directly and I could do it for you.
 
 __________________________________________________________
