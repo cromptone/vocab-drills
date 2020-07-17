@@ -82,7 +82,8 @@
               :margin "10px auto 20px auto"
               :background-color gray
               :color dark-blue
-              :font-size "30px"}]
+              :font-size "30px"
+              :margin-bottom "30px"}]
      [:.word-clouds {:width "calc(20px + 70%)"
                      :display "flex"
                      :flex-direction "column"
@@ -100,4 +101,14 @@
      [:.button__active ^:prefix {:animation [[wiggle "1s"]]
                                  :background-color "pink"}]]
 
-    [:footer {:height "100px" :clear "both"}]]))
+    [:footer {:height "20px"
+              :width "100%"
+              :position "fixed"
+              :left 0
+              :bottom 0
+              :background-color gray
+              :color dark-blue
+              :box-shadow "3px 3px 9px #000000"}
+     [:span {:font-family "monospace"
+             :margin-left "10px"
+             :font-size "smaller"}]]]))
