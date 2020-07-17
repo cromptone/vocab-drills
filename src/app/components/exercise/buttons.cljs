@@ -13,8 +13,8 @@
 (defn buttons []
   [:div.exercise-btns
    (for [{:keys [dispatch-kw text disabled?]} (button-data)]
-     [:button {:class "small-btn"
-               :key text
-               :on-click #(rf/dispatch [dispatch-kw])
-               :disabled disabled?}
+     [:button.small-btn {:class (when disabled? "disabled")
+                         :key text
+                         :on-click #(rf/dispatch [dispatch-kw])
+                         :disabled disabled?}
       text])])
