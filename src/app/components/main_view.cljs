@@ -7,8 +7,7 @@
 (defn app []
   (let [page-kw @(rf/subscribe [:page])]
     [:<>
-     [:header "German vocabulary drills"
-      (menu)]
+     (menu)
      [:main
       (case page-kw
         :about (about)
