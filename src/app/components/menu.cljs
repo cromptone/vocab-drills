@@ -7,7 +7,7 @@
    {:name "Exercises" :page :exercise}])
 
 (defn menu-item [{:keys [name page]}]
-  (let [current-page (or @(rf/subscribe [:page]) :exercise)] ; exercise default
+  (let [current-page (or @(rf/subscribe [:page]) :exercise)]
     [:a {:key name
          :on-click (:set-page page)
          :class (when (= page current-page) "active")
