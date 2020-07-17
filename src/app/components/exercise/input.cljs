@@ -7,8 +7,8 @@
 (defn handler-word-cloud [e]
   (when (= (.. e -key) "Enter")
     (let [value (.. e -target -value)
-          vocab @(rf/subscribe [:correct-answers])
-          input-value-correct? (some #(= value %) (map first vocab))]
+          correct-answers (map first @(rf/subscribe [:correct-vocab]))
+          input-value-correct? (some #(= value %) correct-answers)]
       (when input-value-correct?
         (do
           (rf/dispatch [:move-correct-vocab value])
@@ -17,7 +17,7 @@
 (defn handler-prompt [e]
   (when (= (.. e -key) "Enter")
     (let [value (.. e -target -value)
-          correct-answer (ffirst @(rf/subscribe [:correct-answers]))
+          correct-answer (ffirst @(rf/subscribe [:correct-vocab]))
           input-value-correct? (= value correct-answer)]
       (if input-value-correct?
         (rf/dispatch [:move-correct-vocab value])

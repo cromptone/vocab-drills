@@ -67,7 +67,7 @@
    (:answered vocab)))
 
 (rf/reg-sub
- :correct-answers
+ :correct-vocab
  :<- [:exercise-option]
  :<- [:unanswered-vocab]
  (fn [[exercise-option unanswered-vocab] _]
@@ -79,10 +79,10 @@
 (rf/reg-sub
  :prompt-text
  :<- [:exercise-option]
- :<- [:correct-answers]
- (fn [[exercise-option correct-answers] _]
+ :<- [:correct-vocab]
+ (fn [[exercise-option correct-vocab] _]
    (when (= exercise-option :prompt)
-     (-> correct-answers first second))))
+     (-> correct-vocab first second))))
 
 (rf/reg-sub
  :page
