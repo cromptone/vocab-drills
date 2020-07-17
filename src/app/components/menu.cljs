@@ -3,16 +3,17 @@
             [re-frame.core :as rf]))
 
 (def menu-items
-  [{:name "About" :page :about}
-   {:name "Exercises" :page :exercise}])
+  [{:title "About" :page :about}
+   {:title "Exercises" :page :exercise}])
 
-(defn menu-item [{:keys [name page]}]
-  (let [current-page (or @(rf/subscribe [:page]) :exercise)]
-    [:a {:key name
+(defn menu-item [{:keys [title page]}]
+  (let [current-page (or @(rf/subscribe [:page])
+                         :exercise)]
+    [:a {:key title
          :on-click (:set-page page)
          :class (when (= page current-page) "active")
          :href (router/router-path page)}
-     name]))
+     title]))
 
 (defn menu []
   [:header
