@@ -7,7 +7,7 @@
       [:button.big-btn {:key title
                         :on-click #(rf/dispatch [:set-vocab-list id])
                         :class (when (= active-exercise-id id)
-                                 ["button__active"])}
+                                 "active")}
        title])))
 
 (def options-data
@@ -22,7 +22,7 @@
                          :on-click #(rf/dispatch
                                      [:set-exercise-option option-kw])
                          :class (when (= active-exercise-option option-kw)
-                                  ["button__active"])}
+                                  "active")}
         name])]))
 
 (defn confirm-button []
