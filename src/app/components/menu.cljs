@@ -6,16 +6,15 @@
   [{:title "About" :page :about}
    {:title "Exercises" :page :exercise}])
 
-(defn menu-item [{:keys [title page]}]
-  (let [current-page (or @(rf/subscribe [:page])
-                         :exercise)]
-    [:a {:key title
-         :on-click (:set-page page)
-         :class (when (= page current-page) "active")
-         :href (router/router-path page)}
-     title]))
+(defn menu-item [{:keys [title page]} current-page]
+  [:a {:key title
+       :on-click (:set-page page)
+       :class (when (= page current-page) "active")
+       :href (router/router-path page)}
+   title])
 
 (defn menu []
   [:header
    [:span "German vocabulary drills"]
-   [:nav (for [item menu-items] (menu-item item))]])
+   (let [current-page (or @(rf/subscribe [:page]) :exercise)]
+     [:nav (for [item menu-items] (menu-item item current-page))])])
