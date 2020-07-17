@@ -6,6 +6,7 @@
 (def gray "#a2a2a2")
 (def dark-back "#0f1418")
 (def dark-blue "#121224")
+(def main-margin "50px")
 
 (defkeyframes wiggle
               ["0%" {:transform "rotate(0deg)"}]
@@ -26,7 +27,7 @@
    [:body {:background-color dark-back
            :color "salmon"
            :font-family "Roboto, sans-serif"}
-    [:.about {:margin "30px"
+    [:.about {:margin main-margin
               :color gray}]
     [:header {:line-height "40px"
               :height "40px"
@@ -49,7 +50,7 @@
            :height "30px"}
        [:&:hover {:color "salmon"}]
        [:&.active {:border-bottom-style "solid"}]]]]
-    [:.lists {:margin "50px"}]
+    [:.lists {:margin main-margin}]
     [:.exercise-btns {:margin-right "15%"
                       :float "right"}]
     [:.prompt {:margin "auto"
