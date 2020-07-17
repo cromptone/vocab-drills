@@ -25,11 +25,24 @@
    [:body {:background-color dark-back
            :color "salmon"
            :font-family "Roboto, sans-serif"}
-    [:header {:text-align "center"
-              :display "flex"
-              :align-items "center"
+    [:header {:line-height "40px"
               :height "40px"
-              :width "100%"}]
+              :width "100%"
+              :color "#121224"
+              :background-color "#888888"
+              :font-size "20px"
+              :position "fixed"
+              :left 0
+              :top 0
+              :box-shadow "0px 3px 9px #000000"}
+     [:span {:float "left"
+             :margin-left "20px"}]
+     [:nav {:float "right"}
+      [:a {:float "right"
+           :margin-right "20px"
+           :text-decoration "none"
+           :color "#121224"
+           :display "inline"}]]]
     [:.lists {:margin "50px"}]
     [:.exercise-btns {:margin-right "15%"
                       :float "right"}]
@@ -50,20 +63,6 @@
                     :font-size "12px"}]
 
      [:&.right {:float "right"}]]
-    [:header   {:color "#121224"
-                :background-color "#888888"
-                :font-size 15
-                :font-family "sans-serif"
-                :display "flex"
-                :height "30px"
-                :margin "0 auto 0 auto"
-                :position "fixed"
-                :left 0
-                :top 0
-                :width "100%"
-                :box-shadow "0px 3px 9px #000000"
-                :margin-margin "80px"
-                :padding "5px 10px"}]
     [:main {:margin-top "100px"}
      [:input {:width "70%"
               :height "55px"
