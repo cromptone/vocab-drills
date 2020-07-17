@@ -2,7 +2,7 @@
   (:require [re-frame.core :as rf]))
 
 (defn button-data []
-  [{:text "Go back" :dispatch-kw :clear-exercise}
+  [{:text "Exit exercise" :dispatch-kw :clear-exercise}
    {:text "Remove 20 words"
     :dispatch-kw :remove-20-words
     :disabled? (->> @(rf/subscribe [:unanswered-vocab]) count (>= 20))}
