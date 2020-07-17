@@ -11,7 +11,7 @@ _To use_
 
 * Run ``yarn install``
 
-* Check the `package.json` for different scripts to run to compile the `CSS` file, build the vocabulary `edn`. If you're doing development of your own,
+* Check the `package.json` for different scripts to run to compile the `CSS` file, build the vocabulary `edn`. If you're doing development of your own, run ``yarn dev``
 
 Demo: https://www.germanvocabdrills.com
 _______________________________
@@ -20,7 +20,7 @@ _______________________________
 
 _Introduction_
 
-* This is a program I created to help learn German vocabulary.
+* This is a program I created to help learn German vocabulary. As you can see, it uses Clojure, ClojureScript with Reagent and re-frame, Garden for CSS.
 
 
 _Description of drills_
@@ -38,10 +38,10 @@ _Ideas for improvement_
 _How to add more vocabulary_
 
 * Create a `.txt` file with your vocabulary in it within the `/src/vocab` directory.
- * The first line in the file should be the name (as displayed on the buttons, i.e. "Bike repair" for a vocabulary list about bike repair.
- * The rest of the file has one vocabulary pair per line, with the English first and then the German, separated by a tab. It happens that, if you copy-paste two columns from an Excel spreadsheet, it will be in this tab-delimited format.
- * When in doubt, check out the format of an existing `.txt` file (e.g. https://github.com/cromptone/vocab-drills/blob/master/src/vocab/germanAnimals.txt)
- * Create a pull request.
+* * The first line in the file should be the name (as displayed on the buttons, i.e. "Bike repair" for a vocabulary list about bike repair.
+* * The rest of the file has one vocabulary pair per line, with the English first and then the German, separated by a tab. It happens that, if you copy-paste two columns from an Excel spreadsheet, it will be in this tab-delimited format.
+* * When in doubt, check out the format of an existing `.txt` file (e.g. https://github.com/cromptone/vocab-drills/blob/master/src/vocab/germanAnimals.txt)
+* * Create a pull request.
 * Conversely, if you have a good vocabulary list in a spreadsheet format that you'd like to see uploaded, then reach out to me directly and I could do it for you.
 
 __________________________________________________________
