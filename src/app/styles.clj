@@ -27,6 +27,8 @@
            :font-family "Roboto, sans-serif"}
     [:.exercise-btns {:margin-right "15%"
                       :float "right"}]
+               :width "70%"
+               :clear "both"}]
     [:button {:border-radius "9px"
               :border-style "none"}
      [:&.big-btn {:margin "0px 0px 10px 10px"
@@ -77,7 +79,6 @@
                     :padding "5px"
                     :opacity ".8"}
       [:&.example {:background-color "yellow"}]
-      [:&.incorrect {:backgrund-color "#ffa2a2"}]
       [:&.answered {:background-color "aliceblue"}]]
      [:.button__active ^:prefix {:animation [[wiggle "1s"]]
                                  :background-color "pink"}]]

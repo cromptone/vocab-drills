@@ -8,7 +8,9 @@
 (defn input-&-word-cloud []
   [:<>
    (buttons/buttons)
-   [:p @(rf/subscribe [:prompt-text])]
+   [:h1.prompt (case @(rf/subscribe [:exercise-option])
+                 :prompt @(rf/subscribe [:prompt-text])
+                 :word-cloud "Enter German word:")]
    (input/input)
    [:div.word-clouds
     (clouds/example)
