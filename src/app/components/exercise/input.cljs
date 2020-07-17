@@ -17,8 +17,8 @@
 (defn handler-prompt [e]
   (when (= (.. e -key) "Enter")
     (let [value (.. e -target -value)
-          correct-answers @(rf/subscribe [:correct-answers])
-          input-value-correct? (some #(= value %) (map first correct-answers))]
+          correct-answer (ffirst @(rf/subscribe [:correct-answers]))
+          input-value-correct? (= value correct-answer)]
       (if input-value-correct?
         (rf/dispatch [:move-correct-vocab value])
         (rf/dispatch [:move-incorrect-vocab]))
