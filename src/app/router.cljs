@@ -4,7 +4,8 @@
             [re-frame.core :as rf]))
 
 (def app-routes
-  ["/" {"exercise" :exercise
+  ["/" {"" :exercise
+        "exercise" :exercise
         "about" :about}])
 
 (defn router-path [route]
