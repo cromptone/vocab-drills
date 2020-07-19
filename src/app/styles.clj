@@ -85,7 +85,7 @@
   (io/make-parents "public/css/styles.css")
   (css
    {:output-to "public/css/styles.css"
-    :pretty-print? true}
+    :pretty-print? false}
    [wiggle]
    [:body {:background-color dark-back
            :color "salmon"
