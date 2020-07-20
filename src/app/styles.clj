@@ -4,7 +4,6 @@
             [garden.def :refer [defkeyframes]]))
 
 (def gray "#a2a2a2")
-(def dark-back "#0f1418")
 (def dark-blue "#121224")
 (def main-margin "50px")
 
@@ -87,7 +86,7 @@
    {:output-to "public/css/styles.css"
     :pretty-print? false}
    [wiggle]
-   [:body {:background-color dark-back
+   [:body {:background-color "#0f1418"
            :color "salmon"
            :font-family "Roboto, sans-serif"}
     header
@@ -96,7 +95,6 @@
     [:.about {:margin main-margin
               :color gray}
      [:p {:max-width "600px"}]]
-
     [:.lists {:margin main-margin}]
     [:.exercise-btns {:margin-right "15%"
                       :float "right"}]
@@ -104,7 +102,6 @@
                :width "70%"
                :color gray
                :clear "both"}]
-
     [:main {:margin "100px 0"}
      input
      [:.word-clouds {:width "calc(20px + 70%)"
