@@ -4,10 +4,10 @@
 (defn vocab-lists []
   (let [active-exercise-id @(rf/subscribe [:exercise-id])]
     (for [{:keys [title id]} @(rf/subscribe [:vocab-lists])]
-      [:button.big-btn {:key title
-                        :on-click #(rf/dispatch [:set-vocab-list id])
-                        :class (when (= active-exercise-id id)
-                                 "active")}
+      [:button.big-btn
+       {:key title
+        :on-click #(rf/dispatch [:set-vocab-list id])
+        :class (when (= active-exercise-id id) "active")}
        title])))
 
 (def options-data
@@ -15,14 +15,13 @@
    {:name "Single-word prompt" :option-kw :prompt}])
 
 (defn exercise-options []
-  (let [active-exercise-option @(rf/subscribe [:exercise-option])]
+  (let [active-option @(rf/subscribe [:exercise-option])]
     [:div
      (for [{:keys [name option-kw]} options-data]
-       [:button.big-btn {:key name
-                         :on-click #(rf/dispatch
-                                     [:set-exercise-option option-kw])
-                         :class (when (= active-exercise-option option-kw)
-                                  "active")}
+       [:button.big-btn
+        {:key name
+         :on-click #(rf/dispatch [:set-exercise-option option-kw])
+         :class (when (= active-option option-kw) "active")}
         name])]))
 
 (defn confirm-button []
