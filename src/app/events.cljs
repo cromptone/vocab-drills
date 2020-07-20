@@ -1,10 +1,13 @@
 (ns app.events
   (:require [re-frame.core :as rf]))
 
-(defn get-unanswered [db] (get-in db [:exercise :vocab :unanswered]))
+(def blank-vocab-list
+  {:answered []
+   :dropped []
+   :incorrect []
+   :unanswered []})
 
-(defn clear-vocab [db vocab-kw]
-  (assoc-in db [:exercise :vocab vocab-kw] []))
+(defn get-unanswered [db] (get-in db [:exercise :vocab :unanswered]))
 
 (defn move-vocab-from-to [db from-kw to-kw]
   (let [from-vocab (get-in db [:exercise :vocab from-kw])]
@@ -12,9 +15,6 @@
         (assoc-in [:exercise :vocab from-kw] [])
         (update-in [:exercise :vocab to-kw]
                    #(concat % from-vocab)))))
-
-(def blank-vocab-list
-  {:answered [] :dropped [] :incorrect [] :unanswered []})
 
 (rf/reg-event-db
  :set-exercise-option
