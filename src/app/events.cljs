@@ -62,8 +62,7 @@
  :move-correct-vocab
  (fn [db [_ value]]
    (let [remove-answer (fn [vocab] (remove #(= value (first %)) vocab))
-         answer (filter #(= value (first %))
-                        (get-in db [:exercise :vocab :unanswered]))]
+         answer (filter #(= value (first %)) (get-unanswered db))]
      (-> db
          (update-in [:exercise :vocab :unanswered] remove-answer)
          (update-in [:exercise :vocab :answered] #(concat % answer))))))
