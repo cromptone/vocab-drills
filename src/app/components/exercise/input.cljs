@@ -1,5 +1,6 @@
 (ns app.components.exercise.input
-  (:require [re-frame.core :as rf]))
+  (:require [re-frame.core :as rf]
+            [app.helpers :refer [in-coll?]]))
 
 (defn clear-input []
   (-> js/document (.getElementById "vocab-input") .-value (set! "")))
@@ -8,7 +9,7 @@
   (when (= (.. e -key) "Enter")
     (let [value (.. e -target -value)
           correct-answers (map first @(rf/subscribe [:correct-vocab]))
-          input-value-correct? (some #(= value %) correct-answers)]
+          input-value-correct? (in-coll? correct-answers)]
       (when input-value-correct?
         (do
           (rf/dispatch [:move-correct-vocab value])
