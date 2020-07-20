@@ -75,7 +75,7 @@
                     :border "none"
                     :border-radius "9px"
                     :display "block"
-                    :margin "10px auto 20px auto"
+                    :margin "10px auto"
                     :background-color gray
                     :color dark-blue
                     :font-size "30px"}])
@@ -115,6 +115,7 @@
                      :border-radius "5px"
                      :padding "5px"
                      :opacity ".8"}
-       [:&.example {:background-color "yellow"}]
+       [:&.example {:background-color "yellow"
+                    :margin-bottom "10px"}]
        [:&.incorrect {:background-color "#ffa2a2"}]
        [:&.answered {:background-color "aliceblue"}]]]]]))
