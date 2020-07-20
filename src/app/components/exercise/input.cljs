@@ -9,7 +9,7 @@
   (when (= (.. e -key) "Enter")
     (let [value (.. e -target -value)
           correct-answers (map first @(rf/subscribe [:correct-vocab]))
-          input-value-correct? (in-coll? correct-answers)]
+          input-value-correct? (in-coll? value correct-answers)]
       (when input-value-correct?
         (do
           (rf/dispatch [:move-correct-vocab value])
