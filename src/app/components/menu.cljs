@@ -16,5 +16,5 @@
 (defn menu []
   [:header
    [:span "German vocabulary drills"]
-   (let [current-page (or @(rf/subscribe [:page]) :exercise)]
+   (let [current-page @(rf/subscribe [:page])]
      [:nav (for [item menu-items] (menu-item item current-page))])])

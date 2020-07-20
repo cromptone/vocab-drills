@@ -11,5 +11,6 @@
      (menu)
      [:main (case page-kw
               :about (about)
-              (exercise))]
+              :exercise (exercise)
+              [:div])]
      (footer)]))
