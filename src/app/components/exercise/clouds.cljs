@@ -9,8 +9,8 @@
 (defn example []
   (when (-> @(rf/subscribe [:answered-vocab]) count (< 3))
     [:div.word-cloud.example
-     (let [text (str "Enter the singular and plural,  separated by a comma → das "
-                     "Beispiel, die Beispiele")]
+     (let [text (str "Enter the singular and plural,  separated by a comma → "
+                     "das Beispiel, die Beispiele")]
        (cloud-word {:key text
                     :class "example"
                     :text text}))]))
