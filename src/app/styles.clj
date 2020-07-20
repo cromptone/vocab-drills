@@ -84,7 +84,7 @@
   (io/make-parents "public/css/styles.css")
   (css
    {:output-to "public/css/styles.css"
-    :pretty-print? false}
+    :pretty-print? true} ; Keep true or calc() fn breaks
    [wiggle]
    [:body {:background-color "#0f1418"
            :color "salmon"
