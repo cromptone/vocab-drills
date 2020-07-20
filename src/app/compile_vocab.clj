@@ -1,11 +1,18 @@
 (ns app.compile-vocab
   (:require [clojure.java.io :as io]
             [clojure.edn :as edn]
-            [clojure.string :as str]
-            [clojure.pprint :refer [pprint]])
+            [clojure.string :as str])
   (:import  [org.apache.commons.io FilenameUtils]))
 
 (def COMPILED-DIR "./src/vocab/compiled_vocab.edn")
+
+(defn prn-confirmation []
+  (prn "Vocabulary compiled:")
+  (prn (->> COMPILED-DIR
+            io/reader
+            java.io.PushbackReader.
+            edn/read
+            (map :title))))
 
 (defn parse-file [idx f]
   (let [trim-in-coll (fn [coll] (map str/trim coll))
@@ -32,5 +39,5 @@
            (map-indexed parse-file)
            flatten
            pr-str
-           (.write wrtr)))
-    (pprint (map :title (edn/read (java.io.PushbackReader. (io/reader COMPILED-DIR)))))))
+           (.write wrtr))))
+  (prn-confirmation))
