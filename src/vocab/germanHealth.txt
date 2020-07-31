@@ -13,11 +13,14 @@ das Fieber, die Fieber	fever
 die Gesundheit, die Gesundheiten	health
 die Spritze, die Spritzen	injection (or the syringe)
 das Intrauterinpessar, die Intrauterinpessare	IUD (note: in German, it’s abbreviated IUP)
+die Demenz	dementia
+die Nebenwirkung, die Nebenwirkungen	side-effect
 die Binde, die Binden	menstrual pad
 die Periode, die Perioden	menstrual period
 die Menstruation	menstruation
 die Hebamme, die Hebammen	midwife
 die Fehlleitung, die Fehleitungen	miscarriage
+gelähmt	paralyzed (palsied)
 die Ernährung, die Ernährungen	nutrition
 die Pille, die Pillen	pill
 das Gift, die Gifte	poison

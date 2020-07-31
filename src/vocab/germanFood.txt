@@ -138,3 +138,12 @@ der Lutscher, die Lutscher	lollipop
 das Hähnchen, die Hähnchen	chicken (cooking)
 das Fett, die Fette	fat (grease)
 das Gemüse, die Gemüse	vegetable
+gießen	to pour
+einfetten	to oil (to grease, to lubricate with grease)
+einheitlich	uniform (uniformly, consistently)
+vorheizen	to preheat
+schieben	to push (to thrust, to move, to scoop, to slip)
+bestreuen	to sprinkle (to besprinkle, to strew)
+rühren	to stir (to churn, to mix)
+der Teig, die Teige	dough (paste, pastry dough)
+das Blech, die Bleche	baking sheet (metal sheet, industrial sheet)

@@ -1,0 +1,53 @@
+Personality
+untreu	unfaithful (disloyal, untrue)
+treu	faithful (loyal, true)
+cholerisch	choleric
+erbarmungslos	pitiless (merciless)
+zögerlich	hesitant (unassertive)
+boshaft	venomous (spiteful, vicious)
+knauserig	penny-pinching (tight-fisted) (note—colloquial, pej.)
+korrupt	corrupt
+nachsichtig	clement (forbearing, indulgent, lenient)
+sanft wie ein Lamm	mild as a lamb
+stur wie ein Bock	stubborn as a ram
+schlau wie ein Fuchs	clever as a fox
+mutig wie ein Löwe	brave as a lion
+frech wie Oskar	bold as brass
+fleißig wie eine Biene	busy as a bee
+sanft	gentle (mild, soft, blandly)
+sanft wie eine Taube	as mild as a dove
+launisch	moody (temperamental, capricious)
+verschlossen	withdrawn (uncommunicative, cagy, cagily)
+ausgeglichen	well-adjusted (even, even-tempered, well-balanced)
+unausgeglichen	imbalanced (uneven, not well-adjusted)
+dumm wie Bohnenstroh	dumb as dirt
+stur	mulish (obstinant, bull-headed)
+kontaktfreundig	outgoing (friendly)
+rücksichtsvoll	considerate (thoughtful)
+sinsibel	sensitive (sensible)
+pingelig	fussy (fickle, finnicky)
+feige	cowardly
+lässig	cool (casual, nonchalant, easy-going)
+unsensibel	insensitive (insensible)
+brav	good (well-behaved, honest) (note—could even mean prissy)
+artig	good (well-behaved, polite, dutiful, complimentary)
+mutig	brave (courageous, audacious, gritty, plucky)
+bescheiden	modest (moderate, humble)
+zurückhaltend	conservative (reluctant, guarded)
+frech	cheeky (impertinent)
+temperamentvoll	spirited (bubbly)
+begabt	gifted (apt, talented)
+belastbar	able to work under pressure (resilient, robust)
+eingebildet	conceited (big-headed, cocky)
+hochgestochen	stuck-up
+hochnäsig	stuck--up (nose in the air, uppity, snobbish)
+zuverlässig	dependable (reliable, staunch)
+unzuverlässig	undependable (unreliable, faithless)
+hochnäsig	stuck up
+verlässlich	reliable (dependable)
+sparsam	economical, thrifty
+liebenswürdig	amicable (genial)
+wohlwollend	benevolent (sympathetic)
+geizig	miserly (stingy, avaricious)
+verantwortungslos	irresponsible
+rücksichtslos	inconsiderate

@@ -16,6 +16,7 @@ die Wüste, die Wüsten	desert
 der Deich, die Deiche	dike
 die Dürre, die Dürren	drought
 das Erdbeben, die Erdbeben	earthquake
+der Kreml	the Kremlin
 der Äquator, die Äquatoren	equator
 Europa	Europe
 die Flut, die Fluten	flood

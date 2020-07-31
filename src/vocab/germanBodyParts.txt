@@ -37,3 +37,28 @@ das Handgelenk, die Handgelenke	wrist
 das Knie, die Knie	knee
 die Träne, die Tränen	teardrop
 das Herz, die Herzen	heart (shape or organ)
+übergewichtig	overweight
+kräftig	strong (firm, burly, robust)
+schlank	slim (slender, lank)
+hager	scraggy (gaunt, haggard)
+vollschlank	plump
+dürr	arid (scrawny, barren, meager, droughty)
+dicklich	plump (pudgy)
+füllig	plump (corpulent)
+mager	lean (meager, poor, skinny, gaunt, rawboned)
+mollig	plump (snug, chubby)
+untergewichtig	underweight
+ungepfregt	scruffy (unkempt, blowzy, bedraggled)
+schmuddelig	skanky (dingy, grubby, tatty) (note—pej)
+zerknittert	creased (crumpled, wrinkly, crinkly, creasy)
+gammelig	scruffy
+lockig	curly (ringletted, curly-headed)
+rundlich	chubby (roundish, plump, rotund)
+rosig	rosy (rosy-cheeked)
+blass	pale (pasty, pallid)
+bleich	pale (pasty, pallid, wan)
+glatt	smooth (even, glossy)
+faltig	wrinkled (puckered, wrinkly, crinkly)
+runzelig	puckered (wizen)
+der Zopf, die Zöpfe	pigtail (plait)
+die Perücke, die Perücken	wig
