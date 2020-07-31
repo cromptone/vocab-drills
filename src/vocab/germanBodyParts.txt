@@ -22,7 +22,8 @@ die Faust, die Fäuste	fist
 der Fuß, die Füße	foot
 das Haar, die Haare	hair
 der Kopf, die Köpfe	head
-das Becken, die Becken	hip
+das Becken, die Becken	hip bone
+die Hüfte, die Hüften	hip
 der Darm, die Därme	intestine
 das Gelenk, die Gelenke	joint
 das Bein, die Beine	leg
