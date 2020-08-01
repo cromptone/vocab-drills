@@ -1,4 +1,5 @@
 Body parts
+Body parts	
 der Knöchel, die Knöchel	ankle
 das Aussehen	appearance (as in looks)
 der Arm, die Arme	arm
@@ -63,3 +64,41 @@ faltig	wrinkled (puckered, wrinkly, crinkly)
 runzelig	puckered (wizen)
 der Zopf, die Zöpfe	pigtail (plait)
 die Perücke, die Perücken	wig
+die Brust, die Brüste	chest (breast, bosom)
+der Rücken, die Rücken	back (spine)
+Ich schürfe mir das Knie auf	I skin my knee
+Ich habe mir das Knie aufgeschürft	I skinned my knee
+Du hast dir die Lippen geschminkt	You put on lipstick (You made up your lips)
+der Zeh, die Zehe	toe
+die Stirn, die Stirnen	forehead (brow)
+der Daumen, die Daumen	thumb (cog)
+die Taille, die Taillen	waist (midrift)
+die Ferse, die Fersen	heel (note—specifically anatomical)
+die Kehle, die Kehlen	throat (gorge)
+die Schläfe, die Schläfen	temple (note—specifically anatomical)
+graue Schläfen haben	to be going gray at the temples
+die Wange, die Wangen	cheek (jowl)
+der Oberschenkel, die Oberschenkel	thigh
+die Schulter, die Schultern	shoulder
+die Backe, die Backen	cheek (note—more colloquial)
+der Adamsapfel, die Adamsäpfel	Adam's apple
+der Mahlzahn, die Mahlzähne	molar
+der Eckzahn, die Eckzähne	canine teeth
+das Nasenloch, die Nasenlöcher	nostril
+der Schädel, die Schädel	skull
+das Ohrläppchen, die Ohrläppchen	earlobe
+der Gehörgang, die Gehörgänge	ear canal
+der Wangenknochen, die Wangenknochen	cheekbone
+der Brustkorb, die Brustkörbe	ribcage
+die Rippe, die Rippen	rib
+der Unterschenkel, die Unterschenkel	lower leg
+der Körperteill, die Körperteile	body part
+zwei linke Hände haben	to be clumsy with practical matters (to not be handy)
+auf eigenen Füßen stehen	to stand on one's own two feet
+die Beine under die Arme nehmen	to hurry (to leg it, to high-tail it)
+jemanden um den Finger wickeln	to have someone wrapped around your little finger
+Hals über Kopf	helter-skelter (on the spur of the moment, without much forethought or support)
+auf die leichte Schulter nehmen	to take lightly (to underestimate the danger or importance of)
+mit dem Rücken zur Wand stehen	to be with your back against the wall
+den Kopf hängen lassen	to be sad and despondent
+auf den Arm nehmen	to tease (to put someone on, to yank someone's leg)
