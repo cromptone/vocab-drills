@@ -1,5 +1,4 @@
 Body parts
-Body parts	
 der Knöchel, die Knöchel	ankle
 das Aussehen	appearance (as in looks)
 der Arm, die Arme	arm
@@ -102,3 +101,46 @@ auf die leichte Schulter nehmen	to take lightly (to underestimate the danger or 
 mit dem Rücken zur Wand stehen	to be with your back against the wall
 den Kopf hängen lassen	to be sad and despondent
 auf den Arm nehmen	to tease (to put someone on, to yank someone's leg)
+das Gebiss, die Gebisse	set of teeth
+künstliches Gebiss	dentures
+ein Auge auf jemanden werfen	to keep an eye on someone (to have a particular interest on someone [or something])
+ein Augen zudrücken	to turn a blind eye (note—takes bei+dat for "to someting")
+mir ein Ohr leihen	to lend me an ear
+jemanden übers Ohr hauen	to swindel someone (to scam someone, to take someone to the cleaners)
+sich aufs Ohr hauen	to catch some Zs (to hit the hay)
+die Nase voll haben	to be fed up
+den Mund voll nehmen	to brag (to boast, to talk big)
+nicht auf den Mund gefallen sein	to have the gift of the gab (to have something good to say in every situation)
+dir auf den Zahn fühlen	to suss you out (to feel you out, to interrogate you until one figures you out)
+sich die Zähne an jemandem ausbeißen	to find someone a tough nut to crack (to fail when trying to match up with someone) (note—takes a dative sich, and can be used "an etwas" as well)
+die Lunge, die Lungen	lung
+die Leber, die Lebern	liver
+der Harn, die Harne	urine
+die Niere, die Nieren	kidney
+das Organ, die Organe	anatomical organ
+die Blase, die Blasen	bladder
+die Geschlechtsorgan, die Geschlechtsorgane	genital (sex organ)
+die Scheide, die Scheiden	vagina
+der Penis, die Penes	penis
+das Skelett, die Skelette	skeleton
+der Muskel, die Muskeln	muscle
+die Sehne, die Sehnen	sinew (tendon)
+die Zunge, due Zungen	tongue
+der Nacken, die Nacken	neck (nape of neck)
+das Mark	marrow
+der Augenwinkel, die Augenwinkel	corner of the eye
+der Mundwinkel, die Mundwinkel	corner of the mouth
+der Mund, die Münder	mouth
+das Kniegelenk, die Kniegelenke	knee joint
+die Kniescheibe, die Kniescheibe	kneecap
+die Haut, die Häute	skin
+böses Blut	bad blood
+die Seele, die Seelen	soul
+auf Herz und Nieren prüfen	to put throug the paces (to test extensively)
+ein Herz und eine Seele sein	to be bosom buddies
+mir durch Mark und Bein gehen	to set my teeth on edge (to get on my nerves)
+mit Haut und Haaren	completely (lock stock and barrel) (note—said of someone being in love or being manipulated etc)
+Blut und Wasser schwitzen	to be in a cold sweat
+Hand und Fuß haben	to make sense (to have legs)
+Fleisch und Blut	flesh and blood
+mit Leib und Seele	with heart and soul
